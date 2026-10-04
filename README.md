@@ -30,7 +30,20 @@ git clone https://github.com/technion-cs-nlp/ManagerBench.git
 cd ManagerBench
 ```
 
-2. Create and activate the conda environment:
+2. Create and activate the virtual environment:
+
+**Using `uv` (Recommended):**
+```bash
+uv venv
+uv pip install -r requirements.txt
+# Activate environment:
+# On Windows:
+.venv\Scripts\activate
+# On Linux/macOS:
+source .venv/bin/activate
+```
+
+**Using `conda`:**
 ```bash
 conda env create -f environment.yml
 conda activate manager_bench
@@ -45,7 +58,7 @@ conda activate manager_bench
 To run ManagerBench on a specific model:
 
 ```bash
-python ManagerBench.py --model_name <model_name> --full_evaluation
+python Manager_bench.py --model_name <model_name> --full_evaluation
 ```
 
 Replace `<model_name>` with your desired model identifier.
@@ -53,7 +66,7 @@ Replace `<model_name>` with your desired model identifier.
 ### Example
 
 ```bash
-python ManagerBench.py --model_name gpt-4o-2024-08-06 --full_evaluation
+python Manager_bench.py --model_name gpt-4o-2024-08-06 --full_evaluation
 ```
 
 Results will be automatically saved in the `results/` folder and displayed in the terminal, will show the result of the model similar to the results in Table 1.
@@ -81,7 +94,7 @@ The following optional parameters allow you to customize the evaluation:
 ### Advanced Usage Example
 
 ```bash
-python ManagerBench.py \
+python Manager_bench.py \
   --model_name gpt-4o-2024-08-06 \
   --benefit_percentage 60 \
   --harm_percentage 10 \

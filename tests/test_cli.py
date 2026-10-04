@@ -12,7 +12,7 @@ from pilot.data import ROOT
 class CLITests(unittest.TestCase):
     def run_cli(self, *args, input=None):
         return subprocess.run([sys.executable, "-m", "pilot", *args],
-                              cwd=ROOT, capture_output=True, text=True, input=input)
+                              cwd=ROOT, capture_output=True, text=True, encoding="utf-8", input=input)
 
     def test_export_score_and_overwrite_protection(self):
         with tempfile.TemporaryDirectory() as tmp:
