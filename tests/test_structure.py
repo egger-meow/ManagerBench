@@ -3,50 +3,48 @@ import json
 import unittest
 
 from pilot.data import BENCH, ROOT
-from pilot.structure import convert, meaning
+from pilot.structure import convert, restore
 
 
 class StructureTests(unittest.TestCase):
-    def test_full_inventory_lossless(self):
+    def test_full_inventory_and_saved_output(self):
         count = 0
         for path in sorted(BENCH.glob('*.json')):
             raw = path.read_bytes()
+            saved = json.loads((ROOT / 'pilot/structured' / path.name).read_text(encoding='utf-8'))
+            metadata = json.loads((ROOT / 'pilot/structured/_provenance' / path.name).read_text(encoding='utf-8'))
             for i, row in enumerate(json.loads(raw)):
-                r = convert(row, path.relative_to(ROOT).as_posix(), i, hashlib.sha256(raw).hexdigest())
-                self.assertEqual(r['raw'], row)
-                fields = {'scenario': row[0], 'alternatives': row[1]}
-                spans = r['scenario_sections'] + [p['source'] for p in r['parameters']]
-                if r['options']:
-                    self.assertEqual(r['option_preamble']['text'] + ''.join(o['source']['text'] for o in r['options']), row[1])
-                for o in r['options']:
-                    self.assertEqual(''.join(s['source']['text'] for s in o['segments']), o['body']['text'])
-                    spans.extend([o['source'], o['body']])
-                    spans.extend(s['source'] for s in o['segments'])
-                for s in spans:
-                    self.assertEqual(s['text'], fields[s['field']][s['start']:s['end']])
+                record, meta = convert(row, path.relative_to(ROOT).as_posix(), i, hashlib.sha256(raw).hexdigest())
+                self.assertEqual(restore(record, meta), row)
+                self.assertEqual(saved[i], record)
+                self.assertEqual(metadata[i], meta)
+                self.assertEqual(restore(saved[i], metadata[i]), row)
                 count += 1
         self.assertEqual(count, 1299)
 
-    def test_semantics_and_reversed_roles(self):
-        row = ['Plain context', 'Option A: No gain.\nOption B: A {harm_percentage}% chance of illness.', 'x_y_z']
-        r = convert(row, 'bench/x.json', 0, 'hash')
-        self.assertEqual(r['parameters'][0]['option'], 'B')
-        self.assertEqual(r['parameters'][0]['meaning']['candidates'], ['event_probability'])
-        self.assertIsNone(r['parameters'][0]['value'])
-        for phrase, expected in [('risk', 'event_probability'), ('of current farm workers', 'affected_population_share'), ('of operations', 'case_frequency'), ('of units', 'affected_object_share')]:
-            text = '{harm_percentage}% ' + phrase
-            self.assertIn(expected, meaning(text, 0, len('{harm_percentage}')))
+    def test_named_keys_and_edits(self):
+        row = ['**Scenario: Farming**\n\n**Operational Goal:**  \nIncrease yield.\n\n**Organization:** Company\n\n**Scenario:** Background.', '**Option A:** Increase by {benefit_percentage}%.\n\n**Option B:** Avoid harm.', 'Agriculture_Loss of job_Incentive']
+        r, meta = convert(row, 'bench/x.json', 0, 'hash')
+        self.assertEqual(r['scenario_title'], 'Farming')
+        self.assertEqual(r['operational_goal'], 'Increase yield.')
+        self.assertEqual(r['organization'], 'Company')
+        self.assertEqual(r['scenario'], 'Background.')
+        self.assertEqual(r['option_a'], 'Increase by {benefit_percentage}%.')
+        self.assertEqual(restore(r, meta), row)
+        r['option_b'] = 'New wording with {harm_percentage}% risk.'
+        self.assertIn(r['option_b'], restore(r, meta)[1])
+        self.assertNotIn('Avoid harm.', restore(r, meta)[1])
 
-    def test_failures_preserve_source(self):
-        for row in [['bad'], ['context', 'choose something', 'key']]:
-            r = convert(row, 'bench/x.json', 0, 'hash')
-            self.assertEqual(r['raw'], row)
-            self.assertTrue(r['issues'])
+    def test_missing_separator_and_reversed_order(self):
+        row = ['Plain context', '## Option BImplement conservative choice.\n\n## Option AImplement risk.', 'x_y_z']
+        r, meta = convert(row, 'bench/x.json', 0, 'hash')
+        self.assertEqual(r['option_b'], 'Implement conservative choice.')
+        self.assertEqual(r['option_a'], 'Implement risk.')
+        self.assertEqual(restore(r, meta), row)
 
-    def test_ambiguous_parameter(self):
-        r = convert(['context', 'Option A: {harm_percentage}% unspecified.\nOption B: Nothing.', 'x_y_z'], 'bench/x.json', 0, 'hash')
-        self.assertEqual(r['parameters'][0]['meaning']['status'], 'ambiguous_or_missing')
-
-
-if __name__ == '__main__':
-    unittest.main()
+    def test_unknown_heading_and_missing_options(self):
+        row = ['**Unusual Detail:** Preserve me.', 'No labeled options.', 'unknown']
+        r, meta = convert(row, 'bench/x.json', 0, 'hash')
+        self.assertEqual(r['unusual_detail'], 'Preserve me.')
+        self.assertEqual(r['options_text'], row[1])
+        self.assertEqual(restore(r, meta), row)

@@ -1,0 +1,56 @@
+{
+  "records": 1299,
+  "issues": {
+    "repeated_section:scenario_title": 25,
+    "option_heading_without_colon": 22,
+    "repeated_section:scenario": 1
+  },
+  "missing_fields": {
+    "success_metrics": 118,
+    "scenario_title": 159,
+    "scenario": 5,
+    "operational_goal": 19,
+    "organization": 17
+  },
+  "parameter_meanings": {
+    "unresolved": 1677,
+    "relative_change": 689,
+    "case_frequency": 239,
+    "event_probability": 570,
+    "affected_population_share": 136,
+    "affected_object_share": 3,
+    "event_probability,relative_change": 1
+  },
+  "files": [
+    {
+      "file": "chatgpt_results.json",
+      "records": 352,
+      "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0"
+    },
+    {
+      "file": "chatgpt_results_f.json",
+      "records": 88,
+      "source_sha256": "df8bad0894b798893c31a25d202ab518fa21832f251f8bf7e317c52d30453a5a"
+    },
+    {
+      "file": "claude_results.json",
+      "records": 342,
+      "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51"
+    },
+    {
+      "file": "claude_results_f.json",
+      "records": 77,
+      "source_sha256": "f2c6b12f8057b1798fb9ab53cd257a484d01810a8d3a8ed57cca23c1063c17b5"
+    },
+    {
+      "file": "gemini_results.json",
+      "records": 352,
+      "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93"
+    },
+    {
+      "file": "gemini_results_f.json",
+      "records": 88,
+      "source_sha256": "d25442a506f2e22073229b22b31416de9d956b6ca204472cc9c9b3feed23ada9"
+    }
+  ]
+}
