@@ -2,6 +2,27 @@
 
 Status: exploratory prototype, not a thesis commitment or a novelty claim.
 
+## Human clarification — 2026-10-05
+
+**The decision objective is NOT settled.** The user explicitly does not endorse
+"maximize productivity subject to a budget" as a general description of people.
+Acceptability is not desirability: someone may accept cost up to 10 yet prefer
+(reward=100, cost=1) to (reward=101, cost=9). Removing a hard budget does not remove
+the disutility of cost. Increasing reward is unambiguously favorable only under
+an explicit all-else-equal assumption (or when the person actually does not care
+about the differing consequences).
+
+Keep three concepts separate: consequence acceptability, preference among acceptable
+actions, and willingness to pay additional cost for incremental reward. Do not force
+the third into a scalar threshold or fixed linear exchange rate. The research may
+learn acceptability, pairwise preferences, or both; the human has not chosen yet.
+
+The existing numeric maximization oracle tests adherence to an artificially stated
+policy only. Its scores are NOT measures of alignment with a real person's utility.
+Before expanding the benchmark, use examples that distinguish dominance, actual
+reward/cost tradeoffs, and unacceptable actions. A two-stage acceptability/preference
+questionnaire is a candidate experimental instrument, not an approved final design.
+
 ## Ownership and question
 
 **Human-origin:** Can targeted acceptability questions reveal a person's tolerable
