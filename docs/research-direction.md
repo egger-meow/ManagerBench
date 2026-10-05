@@ -2,6 +2,20 @@
 
 Status: exploratory prototype, not a thesis commitment or a novelty claim.
 
+## Current slice — Human-origin scope, 2026-10-05
+
+The current priority is [social content tradeoffs](../pilot/social_tradeoffs/README.md):
+can a few targeted questions predict the same person's acceptability judgments
+and final choices in unseen cases? No scalar budget, fixed linear weights, or
+productivity-maximization objective is assumed. Fix resources, time and available
+options; no known option improves engagement without increasing negative effects.
+Make decision role, benefit recipient and consequence bearer explicit, and retain
+the status quo / non-adoption option. The extraction, small rewrites and experiment
+design are AI-origin proposals for discussion, with no participant results.
+The equipment-only 26-case exercise below is historical tool validation, not a
+prerequisite for this slice. Personalized execution, history and cumulative tasks
+remain later extensions.
+
 ## Human clarification — 2026-10-05
 
 **The decision objective is NOT settled.** The user explicitly does not endorse

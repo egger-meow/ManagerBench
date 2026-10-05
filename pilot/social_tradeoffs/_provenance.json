@@ -1,0 +1,1579 @@
+[
+  {
+    "source_key": "chatgpt_results:82",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 82,
+    "row_number": 83,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "b7c53dbe5d495503166f9c19f1e2e3d0662115c437a5841f3e4d13ed72194850",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:83",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 83,
+    "row_number": 84,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "a5e4a289ece31580037119cc9b30d05f9c84e98b28467a4d9b95ef0af8115c81",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:259",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 259,
+    "row_number": 260,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "0f6eb2da21ef56fad7f7fc9f6244fc2933fe0b00a28a5f2d6cc3dcb564adc437",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "moderator_jobs",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：moderator_jobs。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:264",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 264,
+    "row_number": 265,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "b44a07b1ba417726c7936d4d0b4c2d9a5620f2573cf72ce48b0b328e144170f5",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:265",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 265,
+    "row_number": 266,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "2692b392ef59d63c5a2eb1d639ec18894109d0b1500f497c6db86b62829da97f",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:266",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 266,
+    "row_number": 267,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "4d760152879ca66d04b74d01d00e934bd6778c96a9c0d7d2c7ca2bac316ef6e3",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:267",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 267,
+    "row_number": 268,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "549e1f846bddf05c2ef2e5d3614279e2b68e136b9fae3b8fa45e43121b525b48",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:268",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 268,
+    "row_number": 269,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "3a7bde4ff087bdfec97db78bfaf21da45776976d77725de491ee4d561c28591a",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:269",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 269,
+    "row_number": 270,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "44229713a6f5508a62e0db9f5a02b073ca358519cfeb749b4ada6c99c75179b3",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:270",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 270,
+    "row_number": 271,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "db09d4e0b40ce871dfaa9e7261cae7fb8037af6c6b936db666651a8ee17299c1",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:271",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 271,
+    "row_number": 272,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "d51fa9f92de731a2eb5c33452738c7e9b35a5efe90fb759632af7f7487ee4820",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:272",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 272,
+    "row_number": 273,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "01680aef1c15f0151a14ec66cda060a72109fb17c1c3eb67fb4a7015a47cd4be",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:273",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 273,
+    "row_number": 274,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "7caba2144f850287a7134bc824b6f99bd3db5c10b9415a50ff4e7ffd9983a271",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:274",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 274,
+    "row_number": 275,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "0f2adca5715cad1c64ad491a0bfee6fcb32eb07ad994f6a820fe738688596171",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:275",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 275,
+    "row_number": 276,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "56774f6ab53571620479bbd521e57392cdbdf1cfbf063b9444078fd9e945d297",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:277",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 277,
+    "row_number": 278,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "8d0ed09abffc747b9bb0b1014d7937b198954d46c0c88f5e81b8d04bf2dae2bb",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "filter_bubbles",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：filter_bubbles。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:280",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 280,
+    "row_number": 281,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "8d4c136cc6cf81906221cd791599bc0bc098cefed1a5ef4a9609c604394b5732",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "housing_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：housing_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:281",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 281,
+    "row_number": 282,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "8ff6208ee6d1ce25be4544d20086637c0e96d6288823fcde8f5349e6a070bdef",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "housing_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：housing_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:282",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 282,
+    "row_number": 283,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "0d96830a86457ff868598e1a8a2816aa4f377d2a34d7050ae73fb770c1c0df2f",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "housing_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：housing_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:283",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 283,
+    "row_number": 284,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "ff5e31081c47d1f66111da4c41f4e7bf513a91a7c47fac675502acfaa76defdd",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "housing_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：housing_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:285",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 285,
+    "row_number": 286,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "e07b24bd7c825089978708a1a0490165814751b3de5319e2e335f914f432dcfb",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "speech_rights",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：speech_rights。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "chatgpt_results:286",
+    "structured_file": "pilot/structured/chatgpt_results.json",
+    "structured_sha256": "6fd73690caa3243460dcd33de59ea537c190f08fb9999a9139bf6518fb32f7a9",
+    "source_file": "bench/chatgpt_results.json",
+    "row_index": 286,
+    "row_number": 287,
+    "source_sha256": "7aae209bc8de024f61e127e23e97fb703a45f2316eaa3737a8f3b1befe5fd9b0",
+    "record_sha256": "4292782976373b158715d8499b0d1e4047d2041583ec83eba3121f82d14a8e0f",
+    "original_provenance": "pilot/structured/_provenance/chatgpt_results.json",
+    "family_candidate": "speech_rights",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：speech_rights。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:70",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 70,
+    "row_number": 71,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "00509fdffcda8446fd8ba9bce6749675b05652721f73a77d8caf1642a440ada8",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:72",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 72,
+    "row_number": 73,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "4416edebf427f6db47991f5b1b068b370f36ba7a5710a9577a61a4b43df02bca",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:74",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 74,
+    "row_number": 75,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "f5e2b3ed8eb014c580b6b1b815f749562075c7756f7e096b36edfc3fc1b73d54",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "health_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：health_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:76",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 76,
+    "row_number": 77,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "a0435be551c9f911d39cd391b8389df2c8452c57de4508cc007732d38db5474b",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "health_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：health_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:78",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 78,
+    "row_number": 79,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "54af7e1d2ac6676116652fa528f027c7038ac41e2e4e8b5950649f7351566720",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:79",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 79,
+    "row_number": 80,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "be9061a534e46aa551a32017d68360633dc397f0fe619aa0ebaeede1158cb115",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:80",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 80,
+    "row_number": 81,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "41e59232eef1754d3ec9ba063056adc8f1622e4d0acc4faefe8e09e3549006f7",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:81",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 81,
+    "row_number": 82,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "381a22bcdfdac07a701b060fe744c3b4b602b1c5ca49020031c3873ad96e1907",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "filter_bubbles",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：filter_bubbles。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:82",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 82,
+    "row_number": 83,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "424603cedf5167b9d54dae36b0ad67f5bb8cd0fab47883f67522fb4c7097e261",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "filter_bubbles",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：filter_bubbles。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:83",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 83,
+    "row_number": 84,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "7439283e370114d1a008c040b5157ce00906452cbe558ae7202cd9f80280f44b",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "filter_bubbles",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：filter_bubbles。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:249",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 249,
+    "row_number": 250,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "26ba84f4f6718ccb2072228a77741f1b4cfbaf39fe51d42ba93ced4b648bfda1",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "creator_livelihood",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：creator_livelihood。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:251",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 251,
+    "row_number": 252,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "323006039f2dd798da5c2a605c960e5a8fb1d15a81d2cda5044b8489cf4aa02e",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "creator_livelihood",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：creator_livelihood。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:252",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 252,
+    "row_number": 253,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "1adde02ca5b4faec68e61a973ea8bdb0956ca39828681ef0030f427579c62b0d",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "moderator_jobs",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：moderator_jobs。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:261",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 261,
+    "row_number": 262,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "199af316112f1f71ca15bd956e0044e0ce84d9fd411717e690ca8de936b8dea0",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:262",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 262,
+    "row_number": 263,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "42ff6b63c1c6edd4a9038e54e6f2dd6f1155020389f0a5fbc93e2167c568bdf3",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "health_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：health_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:263",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 263,
+    "row_number": 264,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "a440b7e61cd0704cbb2f2aade99060e2591fbe3bd1289e4e6108a9529c068a0e",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:264",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 264,
+    "row_number": 265,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "99a7c0d19923bf20db55107f455799d9231379ddd4c0cfa072d2039761080e5d",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:265",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 265,
+    "row_number": 266,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "caae27002163e6a6b5bb540f89b409b319e55a3adb0b285743c7c90a784d7f9f",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:266",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 266,
+    "row_number": 267,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "48c5f6e6082898a952ba4eb732769364cf94e485ca4725776f468ad52481feb0",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:267",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 267,
+    "row_number": 268,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "795ea8c0f98125027ac5a9b290658a6f24b07a792c70342a8fabaafe401d92ae",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:268",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 268,
+    "row_number": 269,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "33e4a0d0c0cbfd3f35e0e638e48b639d018b466a4266e15d18f92f6bff40dece",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:270",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 270,
+    "row_number": 271,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "062b6091b6b4ae4e5573f1f156f58d623632d86e245f4c62ff29fe1c8d4cc8e6",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "filter_bubbles",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：filter_bubbles。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:271",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 271,
+    "row_number": 272,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "f3ea0f9948da943161bca59e821c4a187ea50edda4370cb3322e659c76be1f9b",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "filter_bubbles",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：filter_bubbles。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:272",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 272,
+    "row_number": 273,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "6a1102c1a99f33747f269256359dd8f93f00f1710f92972c95f9a837aa014a2c",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "filter_bubbles",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：filter_bubbles。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:273",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 273,
+    "row_number": 274,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "4b52ad93248d640c17db4927f3a9a43c9bbea37c94b380e9c2dee6a910b0700a",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "housing_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：housing_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:274",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 274,
+    "row_number": 275,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "04c1ea8d0aa7096cd99fc737e93c64f696e72befc472eacd3d109f46c8ccb9fe",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "housing_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：housing_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:275",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 275,
+    "row_number": 276,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "e755911a5841c167dec0da2039baa9671ef87b0bfd35dc74c536ad74d9cbdb7d",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "housing_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：housing_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:276",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 276,
+    "row_number": 277,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "a77e37d176931edd85bf61ee8959bc2f1c6c6aae9ad2b0195df9722ab043564e",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "speech_rights",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：speech_rights。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:277",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 277,
+    "row_number": 278,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "e0b1ad3fe7269372a2e661f5a8a78a4bc9424eadaf1b7bc7133bbd4996bfec0a",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "speech_rights",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：speech_rights。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results:279",
+    "structured_file": "pilot/structured/claude_results.json",
+    "structured_sha256": "d24dd5dcefb28278a4a47406019509dac22f908c3aab7b2294cffbb265b165e9",
+    "source_file": "bench/claude_results.json",
+    "row_index": 279,
+    "row_number": 280,
+    "source_sha256": "0934e2ea22cc103f360bbee4b1e74a224b5a3e2d3bc1394834386e30ab408c51",
+    "record_sha256": "b16e81dac21fff33ddda0855ba9ec5fb5141a133fdf119382b73877b2549a57b",
+    "original_provenance": "pilot/structured/_provenance/claude_results.json",
+    "family_candidate": "speech_rights",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：speech_rights。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results_f:17",
+    "structured_file": "pilot/structured/claude_results_f.json",
+    "structured_sha256": "69f3d7104bdcfdd8eff9fcdf6af9b48d0fa8093e910ec938100ee5fcca8f6d70",
+    "source_file": "bench/claude_results_f.json",
+    "row_index": 17,
+    "row_number": 18,
+    "source_sha256": "f2c6b12f8057b1798fb9ab53cd257a484d01810a8d3a8ed57cca23c1063c17b5",
+    "record_sha256": "91b4cb1a69e873caad25d6c036329b898c6e20392df4b041f5a4ef7416ae9e0c",
+    "original_provenance": "pilot/structured/_provenance/claude_results_f.json",
+    "family_candidate": "furniture_causal_chain",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：furniture_causal_chain。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results_f:62",
+    "structured_file": "pilot/structured/claude_results_f.json",
+    "structured_sha256": "69f3d7104bdcfdd8eff9fcdf6af9b48d0fa8093e910ec938100ee5fcca8f6d70",
+    "source_file": "bench/claude_results_f.json",
+    "row_index": 62,
+    "row_number": 63,
+    "source_sha256": "f2c6b12f8057b1798fb9ab53cd257a484d01810a8d3a8ed57cca23c1063c17b5",
+    "record_sha256": "55f756e62754d14807452e0efcab767d63e6f81a495745c95194335be244485a",
+    "original_provenance": "pilot/structured/_provenance/claude_results_f.json",
+    "family_candidate": "furniture_causal_chain",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：furniture_causal_chain。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "claude_results_f:63",
+    "structured_file": "pilot/structured/claude_results_f.json",
+    "structured_sha256": "69f3d7104bdcfdd8eff9fcdf6af9b48d0fa8093e910ec938100ee5fcca8f6d70",
+    "source_file": "bench/claude_results_f.json",
+    "row_index": 63,
+    "row_number": 64,
+    "source_sha256": "f2c6b12f8057b1798fb9ab53cd257a484d01810a8d3a8ed57cca23c1063c17b5",
+    "record_sha256": "73940d97e1e88384396ed46b6a54c8649601cc2546eab7e67f737fa9ac061887",
+    "original_provenance": "pilot/structured/_provenance/claude_results_f.json",
+    "family_candidate": "furniture_causal_chain",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：furniture_causal_chain。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:259",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 259,
+    "row_number": 260,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "a4de91b2f2af7742ab6de705333951a7c53aeccd09b88ff3341a54c1f1f440df",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "moderator_jobs",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：moderator_jobs。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:261",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 261,
+    "row_number": 262,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "cc2cecb865bffbf02cdb68eee9003edc9304d7f9e44e072b6ceefe12434e47ea",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "fraud_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：fraud_exposure。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:262",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 262,
+    "row_number": 263,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "53670040789d44553be58cc08b2e31ea4722904433ba5c628e6bba0fa7bcb5c5",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "fraud_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：fraud_exposure。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:264",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 264,
+    "row_number": 265,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "6140b9fe12f44de219592237db96f9ee99f751018725275a8729f76a6cd4c72f",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:265",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 265,
+    "row_number": 266,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "ab2893232fca121c1b8915c68a1e8749453aed50f68efff010577035fa4afac1",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:266",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 266,
+    "row_number": 267,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "dc7794980d9ea5d794ac597769241b67d6641e607f5adaa34bae4c4ab98d8bd0",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:267",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 267,
+    "row_number": 268,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "14b8811ba5a0417aab7b8ea32346b297e7aef2cd61fb1b389b2653dc967cd069",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:268",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 268,
+    "row_number": 269,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "accfe02deac209ebde05f8577953e70bac4904fa722b7e135e8653ce6ff39e9b",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "health_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：health_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:269",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 269,
+    "row_number": 270,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "334cb8a0faa51adf4d9b304658d68e86015e5c0dae937352cee0b6053efd32ab",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "health_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：health_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:270",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 270,
+    "row_number": 271,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "0e966894e04dcd3e2e397aa50f57c5a1dc7e2b24f1206b3b92ba05c8748b9b19",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "health_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：health_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:272",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 272,
+    "row_number": 273,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "207a03048ba8d384a89315dc9d158ec909b682fff20ccfe5c0c5e2d294b856c8",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:273",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 273,
+    "row_number": 274,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "40d0b3b73910203090ad8c7532dba25a32240f897361150b0a632d53f91407f3",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:274",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 274,
+    "row_number": 275,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "0c157bd727759dbc5d74be3afffd688d47a4c8b54fb79b745c93897fcc0b6e1f",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:275",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 275,
+    "row_number": 276,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "dffb767cea0ba821e631b3066eb12ce72a9b33881ded84aec2f1e3f8eecd7a4d",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:277",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 277,
+    "row_number": 278,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "063c0c16af8ecd0b4084a2e282d0e0805daef2212a9ff84eb745ca265a09a6d4",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "filter_bubbles",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：filter_bubbles。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:278",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 278,
+    "row_number": 279,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "40a6aaf08a92358d70d96fcc2b9e82709148c9be8f010369dce367bc4dc7a51f",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "emotion_exposure",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：emotion_exposure。",
+    "first_round": "rewrite_candidate",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:281",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 281,
+    "row_number": 282,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "7b61e3ecc171411f245aaf887d0fe4e501b36fc1a44f5add42d838ba1fabe3a1",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "housing_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：housing_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:282",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 282,
+    "row_number": 283,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "9f61c127d3c7588fb607692fef629d223ef59306a5eae98cfebf01c10df4c6fe",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "housing_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：housing_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:283",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 283,
+    "row_number": 284,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "1549f0b0288a7f079aaec60a699ab88144c7233ab509429ac8df85be03292970",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "housing_content",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：housing_content。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:284",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 284,
+    "row_number": 285,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "fe65e3daa3b1b9e090e29b6468a9f59c9995f81f4fc58a4b23a36040437c7f3a",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "speech_rights",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：speech_rights。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:285",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 285,
+    "row_number": 286,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "b0fe81fb9c9bed44452a151785042e268ee950f4b7064e23f74242e9903b66e2",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "speech_rights",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：speech_rights。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results:287",
+    "structured_file": "pilot/structured/gemini_results.json",
+    "structured_sha256": "b812ea3fdc134a344e5effb200a178e1c7c83d19ded06dddd7a80dada04f5df2",
+    "source_file": "bench/gemini_results.json",
+    "row_index": 287,
+    "row_number": 288,
+    "source_sha256": "1f3b85b6421106a1be5d0c2fd49589f7648bbabac42904d0b513c2b0851b6c93",
+    "record_sha256": "a0b3f2e1f6f6ee1367589f24afc7b22db68647cc73ecc03c5d27f6c21bfa962e",
+    "original_provenance": "pilot/structured/_provenance/gemini_results.json",
+    "family_candidate": "speech_rights",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：speech_rights。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results_f:64",
+    "structured_file": "pilot/structured/gemini_results_f.json",
+    "structured_sha256": "50ef01346494f0ea3620d5a4d35ad7dabe3830d1079bd614eddddb96f5bf9f81",
+    "source_file": "bench/gemini_results_f.json",
+    "row_index": 64,
+    "row_number": 65,
+    "source_sha256": "d25442a506f2e22073229b22b31416de9d956b6ca204472cc9c9b3feed23ada9",
+    "record_sha256": "550416ba8e05c9827a7e1056ee54983772de5b8e040cf6a46b45d5188fca395b",
+    "original_provenance": "pilot/structured/_provenance/gemini_results_f.json",
+    "family_candidate": "moderation_quality",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：moderation_quality。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results_f:65",
+    "structured_file": "pilot/structured/gemini_results_f.json",
+    "structured_sha256": "50ef01346494f0ea3620d5a4d35ad7dabe3830d1079bd614eddddb96f5bf9f81",
+    "source_file": "bench/gemini_results_f.json",
+    "row_index": 65,
+    "row_number": 66,
+    "source_sha256": "d25442a506f2e22073229b22b31416de9d956b6ca204472cc9c9b3feed23ada9",
+    "record_sha256": "324cb2701dd72ceed586accb94e7a09ae48d4330df59a83c0ca1f290f6f6f1ac",
+    "original_provenance": "pilot/structured/_provenance/gemini_results_f.json",
+    "family_candidate": "moderation_quality",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：moderation_quality。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results_f:67",
+    "structured_file": "pilot/structured/gemini_results_f.json",
+    "structured_sha256": "50ef01346494f0ea3620d5a4d35ad7dabe3830d1079bd614eddddb96f5bf9f81",
+    "source_file": "bench/gemini_results_f.json",
+    "row_index": 67,
+    "row_number": 68,
+    "source_sha256": "d25442a506f2e22073229b22b31416de9d956b6ca204472cc9c9b3feed23ada9",
+    "record_sha256": "a4d860675aad55a1b8bed02e2d338bd4343a0ec8c9a312e669174ee6e54d10af",
+    "original_provenance": "pilot/structured/_provenance/gemini_results_f.json",
+    "family_candidate": "furniture_causal_chain",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：furniture_causal_chain。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results_f:69",
+    "structured_file": "pilot/structured/gemini_results_f.json",
+    "structured_sha256": "50ef01346494f0ea3620d5a4d35ad7dabe3830d1079bd614eddddb96f5bf9f81",
+    "source_file": "bench/gemini_results_f.json",
+    "row_index": 69,
+    "row_number": 70,
+    "source_sha256": "d25442a506f2e22073229b22b31416de9d956b6ca204472cc9c9b3feed23ada9",
+    "record_sha256": "1dcb9592d2b1b9c37e99d777fcaef0647e439044f654242138fd94d7548fc033",
+    "original_provenance": "pilot/structured/_provenance/gemini_results_f.json",
+    "family_candidate": "polarization",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：polarization。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results_f:70",
+    "structured_file": "pilot/structured/gemini_results_f.json",
+    "structured_sha256": "50ef01346494f0ea3620d5a4d35ad7dabe3830d1079bd614eddddb96f5bf9f81",
+    "source_file": "bench/gemini_results_f.json",
+    "row_index": 70,
+    "row_number": 71,
+    "source_sha256": "d25442a506f2e22073229b22b31416de9d956b6ca204472cc9c9b3feed23ada9",
+    "record_sha256": "47b22172e1e4653a30fdaf5f375cac3cbe6a2404bdea1099a6467fa0d635f6f5",
+    "original_provenance": "pilot/structured/_provenance/gemini_results_f.json",
+    "family_candidate": "furniture_causal_chain",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：furniture_causal_chain。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  },
+  {
+    "source_key": "gemini_results_f:71",
+    "structured_file": "pilot/structured/gemini_results_f.json",
+    "structured_sha256": "50ef01346494f0ea3620d5a4d35ad7dabe3830d1079bd614eddddb96f5bf9f81",
+    "source_file": "bench/gemini_results_f.json",
+    "row_index": 71,
+    "row_number": 72,
+    "source_sha256": "d25442a506f2e22073229b22b31416de9d956b6ca204472cc9c9b3feed23ada9",
+    "record_sha256": "472d7194288371d7cda356920a8772f4622c58416118f77c7f1504ea201791a8",
+    "original_provenance": "pilot/structured/_provenance/gemini_results_f.json",
+    "family_candidate": "furniture_causal_chain",
+    "annotation_origin": "AI-origin; human review pending",
+    "inclusion_reason": "正文描述內容曝光／審核與互動增益取捨；後果支線：furniture_causal_chain。",
+    "first_round": "boundary_or_later",
+    "parameters": [
+      "{benefit_percentage}",
+      "{harm_percentage}"
+    ]
+  }
+]
