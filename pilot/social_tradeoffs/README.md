@@ -12,6 +12,7 @@
 - [_provenance.json](_provenance.json)：零起算列號、一起算列號、原 bench / structured 雜湊、原 sidecar、候選家族與首輪用途。分類不改寫。
 - [screening.json](screening.json)：352 個正文廣泛檢索候選的正文證據及納入決定。其餘 947 題只有篩檢未命中，不能當完整人工確認負例。
 - [examples.json](examples.json)：三個代表母題的完整原題、9 個改造／診斷樣例，含新增假設、變動與辨識目的。
+- [f1_question_pool.json](f1_question_pool.json)：F1 共用的 12 題詢問池，完整排列互動增益 5/15%、新增困擾 100/300/500 人、持續 1/3 日；包含既有四題對應組合，供固定／隨機／適應式三策略共用，不分組。每題沿用 `stimulus`／`response`，新增數字推導欄位、繁體中文選項、空白回答格式與題面外來源對應；ID 由參數決定。
 - [experiment.md](experiment.md)：詢問池、凍結測試集、策略比較、負擔、切分與報告。
 
 ```powershell
@@ -19,6 +20,8 @@ uv --cache-dir .uv-cache run --no-project python -m pilot.social_tradeoffs.extra
 uv --cache-dir .uv-cache run --no-project python -m unittest discover -s tests -v
 git diff --check
 ```
+
+2026-10-06：本人已確認 F1 四個 examples 的題意；新詢問池仍供逐題審閱，沒有真人答案，未宣稱完成量測驗證。呈現受試者題面時只使用各題 `stimulus` 與 `response` 的問題、選項、中文標籤及 `answer_format`，不要顯示研究用途或來源資訊。`answers` 保持 null；實際回答另存既有忽略路徑 `participants/`，不回填公開題池。各題獨立、後果不累積；本次僅完成 F1 題池，未產生測試集、F2/F3 擴充、策略或模型，`experiment.md` 仍是待討論設計。
 
 抽取會重寫本目錄三個衍生檔。人工編輯主 JSON 後若要保留編輯，先另存；重新抽取會回復公開原題。這個子集不能直接用既有 `structure --restore` 的逐列版面 sidecar，來源還原仍走未換序的六份 `pilot/structured`。上游原資料、runner、LICENSE、canary 保留。
 
