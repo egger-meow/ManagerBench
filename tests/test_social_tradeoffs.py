@@ -8,9 +8,9 @@ from pilot.social_tradeoffs.extract import build
 
 
 class SocialTradeoffArtifacts(unittest.TestCase):
-    def test_f1_pool_is_complete_and_preserves_confirmed_template(self):
+    def test_f1_numeric_baseline_is_complete_and_preserves_confirmed_template(self):
         folder = Path(__file__).resolve().parents[1] / 'pilot/social_tradeoffs'
-        pool = json.loads((folder / 'f1_question_pool.json').read_text(encoding='utf-8'))
+        pool = json.loads((folder / 'f1_numeric_baseline.json').read_text(encoding='utf-8'))
         example = json.loads((folder / 'examples.json').read_text(encoding='utf-8'))['examples'][0]
         base = example['variants'][0]
         items = pool['items']
@@ -62,6 +62,61 @@ class SocialTradeoffArtifacts(unittest.TestCase):
                            v['stimulus']['parameters']['distress_duration_days'])
             for v in example['variants']
         })
+
+    def test_context_pool_preserves_pairs_units_and_empty_responses(self):
+        folder = Path(__file__).resolve().parents[1] / 'pilot/social_tradeoffs'
+        pool = json.loads((folder / 'f1_question_pool.json').read_text(encoding='utf-8'))
+        baseline = json.loads((folder / 'f1_numeric_baseline.json').read_text(encoding='utf-8'))
+        items = {item['item_id']: item for item in pool['items']}
+        self.assertEqual(len(items), 7)
+        self.assertEqual(len(pool['items']), 7)
+        self.assertEqual(len(pool['pairs']), 4)
+        self.assertFalse(set(items) & {item['item_id'] for item in baseline['items']})
+        referenced = set()
+        for pair in pool['pairs']:
+            left, right = [items[id_] for id_ in pair['item_ids']]
+            referenced.update(pair['item_ids'])
+            self.assertTrue(pair['possible_reasons'])
+            self.assertTrue(pair['confounds'])
+            lp, rp = left['stimulus']['parameters'], right['stimulus']['parameters']
+            self.assertEqual(set(lp), set(rp))
+            self.assertEqual({key for key in lp if lp[key] != rp[key]}, set(pair['parameter_changes']))
+            self.assertEqual({key for key in left['stimulus'] if key != 'parameters'
+                              and left['stimulus'][key] != right['stimulus'][key]},
+                             set(pair['stimulus_changes']))
+            self.assertEqual(left['response'], right['response'])
+        self.assertEqual(referenced, set(items))
+        for item in items.values():
+            s = item['stimulus']
+            p = s['parameters']
+            self.assertEqual(item['family'], 'F1-general-debate')
+            self.assertEqual(item['source_key'], 'chatgpt_results:264')
+            self.assertEqual(item['provenance']['original_source_key'], item['source_key'])
+            self.assertTrue(item['provenance']['added_assumptions'])
+            self.assertEqual(item['response'], baseline['items'][0]['response'])
+            self.assertEqual(p['population'], 10000)
+            self.assertEqual(p['additional_exposure_users'], 1000)
+            self.assertLessEqual(p['additional_affected_users'], p['additional_exposure_users'])
+            self.assertEqual(p['additional_affected_users_percent'], p['additional_affected_users'] / 100)
+            self.assertEqual(p['distress_events'], p['additional_affected_users'] * p['events_per_affected_user'])
+            self.assertEqual(p['distress_duration_unit'], 'days_per_event')
+            self.assertEqual(p['total_distress_days_per_affected_user'],
+                             p['events_per_affected_user'] * p['distress_duration_days'])
+            self.assertEqual(p['baseline_weekly_interactions'], 100000)
+            self.assertEqual(p['option_b_weekly_interactions'], 100000)
+            self.assertEqual(p['option_a_weekly_interactions'], 100000 + 1000 * p['engagement_gain_percent'])
+            self.assertIn(f"增加 {p['engagement_gain_percent']}%", s['option_a'])
+            self.assertIn(f"{p['option_a_weekly_interactions']:,} 次", s['option_a'])
+            self.assertIn(f"新增 {p['additional_affected_users']} 名不同", s['option_a'])
+            self.assertIn(f"共 {p['distress_events']} 次困擾事件", s['option_a'])
+            self.assertIn('每次持續 1 日', s['option_a'])
+            self.assertIn('各題是彼此獨立', s['scenario'])
+            self.assertNotIn('可能理由', s['option_a'])
+        spread = items['F1-context-burden-spread']['stimulus']['parameters']
+        repeat = items['F1-context-burden-repeat']['stimulus']['parameters']
+        self.assertEqual((spread['additional_affected_users'], spread['distress_events'], spread['events_per_affected_user']), (300, 300, 1))
+        self.assertEqual((repeat['additional_affected_users'], repeat['distress_events'], repeat['events_per_affected_user']), (100, 300, 3))
+        self.assertIn('並非連續三日', items['F1-context-burden-repeat']['stimulus']['option_a'])
 
     def test_subset_is_exact_and_source_mapped(self):
         questions, origins, screening, total = build()
