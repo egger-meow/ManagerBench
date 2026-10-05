@@ -14,6 +14,8 @@
 - [examples.json](examples.json)：三個代表母題的完整原題、9 個改造／診斷樣例，含新增假設、變動與辨識目的。
 - [f1_numeric_baseline.json](f1_numeric_baseline.json)：原有 F1 12 題原樣保存，含原 ID、完整排列、數字與空白回答；用作固定模板的數值 baseline。
 - [f1_question_pool.json](f1_question_pool.json)：新情境題庫草案，四組對照、七個獨立案例，探索風險揭露、正文直接／點開顯示、困擾分散／重複集中，另保留增益對照。`pairs` 放研究理由與混淆，`items` 沿用題面／回答 schema；三策略共用，不分組。
+- [instruments/f1_context_v001.json](instruments/f1_context_v001.json)：目前可產生作答本的版本化題庫，保留七個穩定 ID；明列 query 清單與空白 test 清單，題面與切分仍待審閱。
+- [data_format.md](data_format.md)：手填、驗證命令與本地 run 格式／模型讀取邊界；工具只做作答本與輸入投影，不跑實驗。
 - [experiment.md](experiment.md)：數值 baseline、情境配對理由、詢問／測試候選切分、線索覆蓋與比較界線。
 
 ```powershell
@@ -81,3 +83,9 @@ git diff --check
 原 examples 曾提議一般爭論詢問、煽情健康內容留出；2026-10-06 的新草案先留在一般爭論曝光，檢查資訊揭露、呈現與分配。健康內容的誤導性可能帶入尚未詢問的獨有考量，不再預設為本批主測試；F2/F3 原 examples 保留作歷史診斷，極化、家具與住房也不放進主分數。
 
 最可能推翻設計：受訪者不把「互動」視為效益、不信可靠因果／沒有更好方案的前提，或認為平台身分沒有資格替用戶接受困擾；此時低預測準確率不是詢問策略失敗。先用本人認知訪談辨別這些問題，再討論是否改決策身分、利益定義或研究問題。
+
+## 直接填 JSON
+
+開啟 repo 根目錄的 `participants/p001/f1_context_v001.json`，只編輯每題 `answer.accept_a`、`answer.accept_b`、`answer.choice`、`answer.reason`。前三欄使用題目列出的完整繁體中文選項或 null；reason 為自由文字或 null。完整命令與選項表見 [資料格式](data_format.md)。已產生的 p001 全為空白；檔案被 git 忽略，產生工具拒絕覆寫既有本。公開題庫無真人答案。
+
+`f1_question_pool.json` 保留上輪情境草案與研究對照；`instruments/` 是後續作答及重播的版本入口，不是宣稱已凍結正式量測。新增題面／切分另建版本、重新產生空白作答本。當前 test 清單為空，尚不能做留出評估；本次未啟動實驗。

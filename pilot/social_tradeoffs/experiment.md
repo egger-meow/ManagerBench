@@ -72,3 +72,9 @@
 後續若進入小樣本，按人、k 與 T-num／T-combination／T-case 分層報告 A 與 B 各自四類接受性、五類最終選擇、缺答、coverage 與未預測比例；樣本缺類則指標未定義，不刪去困難類別。另報理解／重複一致性、題組數與時間、個人差異及相對不詢問的增益。人是統計單位，題數與 paired seeds 不是獨立受試者；配對案例不是倫理正確答案。
 
 本批最多支持檢查有限條件下的個人可接受性與選擇預測。沒有結果時不能宣稱偏好已識別、揭露必然較好、反覆一定較差或情境題庫優於數值 baseline。政策正當性、實際平台因果效果、全域效用、LLM 決策執行、歷史、累積任務與 RL 均在本次範圍之外；這輪只交付題庫與設計草案，沒有模型、runner 或施測。
+
+## 本地資料入口（2026-10-06）
+
+新版檔案入口為 `instruments/f1_context_v001.json`，七題 query、test 清單空白，均待審閱；原情境草案與數值 baseline 保留。作答本在忽略路徑 `participants/<participant_id>/<instrument_id>.json`，只填中文 answer。產生檔案不構成驗證或正式施測。版本與 canonical JSON SHA-256 綁定題面／切分，改版另建，不默默沿用答案。
+
+未來 run 須凍結題庫及答案快照與雜湊；完整答案僅重播／評分端持有，模型端透過 allowlist payload 只取得已揭露 query 答案，測試答案不揭露。include_reason 預設 false，若開啟各策略一致。最小格式、缺答處理與隔離要求見 [data_format.md](data_format.md)。本輪僅實作產生／驗證與輸入投影，沒有策略、模型、runner 或評分實驗。
