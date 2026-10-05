@@ -78,3 +78,9 @@
 新版檔案入口為 `instruments/f1_context_v001.json`，七題 query、test 清單空白，均待審閱；原情境草案與數值 baseline 保留。作答本在忽略路徑 `participants/<participant_id>/<instrument_id>.json`，只填中文 answer。產生檔案不構成驗證或正式施測。版本與 canonical JSON SHA-256 綁定題面／切分，改版另建，不默默沿用答案。
 
 未來 run 須凍結題庫及答案快照與雜湊；完整答案僅重播／評分端持有，模型端透過 allowlist payload 只取得已揭露 query 答案，測試答案不揭露。include_reason 預設 false，若開啟各策略一致。最小格式、缺答處理與隔離要求見 [data_format.md](data_format.md)。本輪僅實作產生／驗證與輸入投影，沒有策略、模型、runner 或評分實驗。
+
+## 程式狀態更新（2026-10-06）
+
+在上述資料整理後，另依 Human-origin 指示架設本機 Google API 流程：固定／隨機／LLM 適應式選題，皆共用相同 predictor；先做 k=0，再逐題揭露與預測，所有預測保存後才評分。每次請求重新組合允許的資料，沒有共用 chat history；測試題不回流選題者。程式與續跑紀錄見 [run_readme.md](run_readme.md)。先前「未實作 runner／策略」描述保留為該階段歷史；現已實作程式，仍沒有 API／真人實驗或研究結果。
+
+這次沒有改題庫、凍結測試切分、補真人答案或擴大研究範圍。測試使用明標合成 fixture／API stub，不能當作模型或真人證據。正式三策略比較仍需人工審閱 instrument、填答，並凍結共同測試、預測 prompt／模型／生成設定／reason 規則與額度。

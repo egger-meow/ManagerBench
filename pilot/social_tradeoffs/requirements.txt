@@ -1,0 +1,2 @@
+# Isolated uv --no-project runtime; no upstream GPU dependencies.
+google-genai==2.28.0

@@ -1,6 +1,6 @@
 # 社群內容取捨：研究討論 pilot
 
-2026-10-05。沒有真人答案、模型實驗或研究結果。本目錄只含公開原題、AI-origin 分析與明示的假設性改造；不是可直接施測的正式問卷。
+2026-10-05。沒有真人答案、模型實驗或研究結果。本目錄含公開原題、AI-origin 分析、假設性改造及本機 Google 實驗程式；題庫仍待審閱，不是已驗證的正式問卷。
 
 **Human-origin 問題：**少量、有針對性的詢問，能否預測同一個人對未見情境的可接受性與最終選擇？不預設 scalar budget、固定線性權重或限制內最大化互動。固定资源與時間下，目前沒有已知方案能同時增加互動而不增加負面影響。人仍可不採用或維持現狀。
 
@@ -15,7 +15,8 @@
 - [f1_numeric_baseline.json](f1_numeric_baseline.json)：原有 F1 12 題原樣保存，含原 ID、完整排列、數字與空白回答；用作固定模板的數值 baseline。
 - [f1_question_pool.json](f1_question_pool.json)：新情境題庫草案，四組對照、七個獨立案例，探索風險揭露、正文直接／點開顯示、困擾分散／重複集中，另保留增益對照。`pairs` 放研究理由與混淆，`items` 沿用題面／回答 schema；三策略共用，不分組。
 - [instruments/f1_context_v001.json](instruments/f1_context_v001.json)：目前可產生作答本的版本化題庫，保留七個穩定 ID；明列 query 清單與空白 test 清單，題面與切分仍待審閱。
-- [data_format.md](data_format.md)：手填、驗證命令與本地 run 格式／模型讀取邊界；工具只做作答本與輸入投影，不跑實驗。
+- [data_format.md](data_format.md)：手填、驗證命令與本地 run 格式／模型讀取邊界；作答工具與輸入投影的契約。
+- [run_readme.md](run_readme.md)：Google API 本機 runner、三策略、k=0／逐步預測、評分、私有紀錄與續跑說明；僅離線測試，沒有 API／真人實驗。
 - [experiment.md](experiment.md)：數值 baseline、情境配對理由、詢問／測試候選切分、線索覆蓋與比較界線。
 
 ```powershell
@@ -26,7 +27,7 @@ git diff --check
 
 2026-10-06：本人已確認原 F1 四個 examples 的題意；舊 12 題移為數值 baseline，新草案覆寫原 `f1_question_pool.json`，新 ID 不重用舊題意。研究核心仍是少量詢問預測同一人的未見案例判斷，不預設 budget、固定權重或互動最大化。新情境設定全部為 AI-origin，待逐對人工審閱；沒有真人答案或量測驗證。
 
-呈現受試者時只使用 `stimulus` 與 `response` 的問題、選項、中文標籤及回答格式，不顯示來源、`pairs` 或預期理由。`answers` 均 null，實際回答另存忽略路徑 `participants/`。事件數是困擾發作人次，與不同人數及每次日數分開；同一題可有恢復後重複發作，各題政策仍獨立、不累積。`experiment.md` 區分新數值、新條件組合與新案例的候選切分，尚未生成／凍結測試集或實作模型、runner、策略及正式施測。
+呈現受試者時只使用 `stimulus` 與 `response` 的問題、選項、中文標籤及回答格式，不顯示來源、`pairs` 或預期理由。`answers` 均 null，實際回答另存忽略路徑 `participants/`。事件數是困擾發作人次，與不同人數及每次日數分開；同一題可有恢復後重複發作，各題政策仍獨立、不累積。`experiment.md` 區分新數值、新條件組合與新案例的候選切分，尚未生成／凍結測試集；Google runner、策略與預測介面現已實作，但沒有 API 呼叫或正式施測。
 
 抽取會重寫本目錄三個衍生檔。人工編輯主 JSON 後若要保留編輯，先另存；重新抽取會回復公開原題。這個子集不能直接用既有 `structure --restore` 的逐列版面 sidecar，來源還原仍走未換序的六份 `pilot/structured`。上游原資料、runner、LICENSE、canary 保留。
 
@@ -89,3 +90,9 @@ git diff --check
 開啟 repo 根目錄的 `participants/p001/f1_context_v001.json`，只編輯每題 `answer.accept_a`、`answer.accept_b`、`answer.choice`、`answer.reason`。前三欄使用題目列出的完整繁體中文選項或 null；reason 為自由文字或 null。完整命令與選項表見 [資料格式](data_format.md)。已產生的 p001 全為空白；檔案被 git 忽略，產生工具拒絕覆寫既有本。公開題庫無真人答案。
 
 `f1_question_pool.json` 保留上輪情境草案與研究對照；`instruments/` 是後續作答及重播的版本入口，不是宣稱已凍結正式量測。新增題面／切分另建版本、重新產生空白作答本。當前 test 清單為空，尚不能做留出評估；本次未啟動實驗。
+
+## Google 本機程式（已架設，未執行實驗）
+
+入口 `python -m pilot.social_tradeoffs.run`，依 [run_readme.md](run_readme.md) 使用 uv 的獨立 Google SDK requirements 啟動，不需要網站、後端或資料庫。選題／預測各次獨立 API 請求，測試答案只留評分端；三策略共用 predictor。API key 僅從 GEMINI_API_KEY 環境變數取得。API 輸入輸出、答案快照與結果都在忽略的 runs/，不公開。
+
+當前 f1_context_v001 只有 query，入口會拒絕空 test 集及完全未填的 test 答案。這輪沒有擅自建立切分、填答或開始 API 實驗；題庫審閱與真人作答仍待你完成。
