@@ -1,4 +1,4 @@
-**一般填答與三策略操作只看 [START_HERE.md](START_HERE.md)：填 participants/p001/f1_numeric_v001.json。下面保留 schema 與先前七題 instrument 的進階格式說明。**
+**一般填答與三策略操作只看 [START_HERE.md](START_HERE.md)：填 participants/p001/f1_context_v002.json。下面保留 schema 與先前七題 instrument 的進階格式說明。**
 
 # 本地作答與未來離線重播格式
 

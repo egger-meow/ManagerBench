@@ -1,8 +1,8 @@
 # 先填這裡
 
-**只填 `participants/p001/f1_numeric_v001.json` 各題的 `answer`，不要改 instruments。**
+**只填 `participants/p001/f1_context_v002.json` 各題的 `answer`，不要改 instruments。**
 
-十二題作答本已產生。完整操作只看 [START_HERE.md](START_HERE.md)：填答 → `workflow.py check` → `workflow.py run --model ...`，預設三策略全跑並產生比較圖。API 尚未呼叫，下面的原題、七題情境草案與 baseline 都保留作研究材料。十二題 baseline 的 8 query／4 test 切分為待審閱草案，只測同一模板數值組合。
+目前入口使用十二題情境版（8 query／4 test），涵蓋風險說明、曝光方式、困擾分配與增益。完整操作只看 [START_HERE.md](START_HERE.md)：填答 → 檢查 → 跑三策略並出圖。題庫與切分待審閱；測新條件組合，不宣稱跨情境家族泛化。原數值 baseline、七題情境草案和所有舊作答本保留。
 
 ---
 
@@ -104,3 +104,5 @@ git diff --check
 入口 `python -m pilot.social_tradeoffs.run`，依 [run_readme.md](run_readme.md) 使用 uv 的獨立 Google SDK requirements 啟動，不需要網站、後端或資料庫。選題／預測各次獨立 API 請求，測試答案只留評分端；三策略共用 predictor。API key 僅從 GEMINI_API_KEY 環境變數取得。API 輸入輸出、答案快照與結果都在忽略的 runs/，不公開。
 
 當前 f1_context_v001 只有 query，入口會拒絕空 test 集及完全未填的 test 答案。這輪沒有擅自建立切分、填答或開始 API 實驗；題庫審閱與真人作答仍待你完成。
+
+目前操作題庫：[f1_context_v002.json](instruments/f1_context_v002.json)，設計與十二題對照見 [context_v002_review.md](context_v002_review.md)。

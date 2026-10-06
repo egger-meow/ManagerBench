@@ -44,7 +44,9 @@ class WorkflowTests(unittest.TestCase):
             self.assertEqual(a['item_id'], b['item_id'])
             self.assertEqual(a['stimulus'], b['stimulus'])
         book_path = Path(self.temp.name) / 'answers.json'
-        with patch('pilot.social_tradeoffs.workflow.BOOK', book_path):
+        with patch('pilot.social_tradeoffs.workflow.BOOK', book_path), patch(
+                'pilot.social_tradeoffs.workflow.INSTRUMENT',
+                ROOT / 'pilot/social_tradeoffs/instruments/f1_numeric_v001.json'):
             prepare()
             empty = read_json(book_path)
             self.assertEqual(len(validate_book(self.instrument, empty)), 36)
@@ -53,6 +55,42 @@ class WorkflowTests(unittest.TestCase):
             original = book_path.read_bytes()
             prepare()
             self.assertEqual(book_path.read_bytes(), original)
+
+    def test_context_v002_crosses_conditions_and_preserves_old_items(self):
+        from pilot.social_tradeoffs.build_context_v002 import build
+        from pilot.social_tradeoffs.workflow import INSTRUMENT, BOOK
+        draft = read_json(INSTRUMENT)
+        self.assertEqual(draft, build())
+        self.assertEqual(INSTRUMENT.stem, 'f1_context_v002')
+        self.assertEqual(BOOK.stem, INSTRUMENT.stem)
+        old = read_json(ROOT / 'pilot/social_tradeoffs/instruments/f1_context_v001.json')
+        self.assertEqual(draft['items'][:7], old['items'])
+        self.assertEqual((len(draft['query_item_ids']), len(draft['test_item_ids'])), (8, 4))
+        seen = set()
+        query_levels = {}
+        for item in draft['items']:
+            p = item['stimulus']['parameters']
+            text = item['stimulus']['option_a']
+            key = tuple(p[k] for k in ('engagement_gain_percent', 'risk_disclosure',
+                                      'exposure_mode', 'burden_distribution', 'additional_affected_users'))
+            self.assertNotIn(key, seen)
+            seen.add(key)
+            self.assertEqual(p['distress_events'], p['additional_affected_users'] * p['events_per_affected_user'])
+            self.assertEqual(p['additional_affected_users_percent'], 100 * p['additional_affected_users'] / p['population'])
+            self.assertEqual(p['option_a_weekly_interactions'], 100000 * (100 + p['engagement_gain_percent']) // 100)
+            self.assertIn(f"增加 {p['engagement_gain_percent']}%", text)
+            self.assertIn(f"{p['option_a_weekly_interactions']:,} 次", text)
+            self.assertEqual('平台沒有在這段說明' in text, p['risk_disclosure'] == 'content_notice_only')
+            self.assertEqual('未點開不會看到正文' in text, p['exposure_mode'] == 'feed_click')
+            self.assertEqual('並非連續三日' in text, p['events_per_affected_user'] == 3)
+            if item['item_id'] in draft['query_item_ids']:
+                for k, v in p.items():
+                    query_levels.setdefault(k, set()).add(v)
+        for item in draft['items']:
+            if item['item_id'] in draft['test_item_ids']:
+                for k, v in item['stimulus']['parameters'].items():
+                    self.assertIn(v, query_levels[k])
+        self.assertEqual(len(validate_book(draft, blank_book(draft, 'synthetic_test'))), 36)
 
     @unittest.skipUnless(PLOT_AVAILABLE, 'Run with social_tradeoffs requirements to verify real plotting')
     def test_three_strategy_batch_outputs_real_charts_and_resumes_without_calls(self):

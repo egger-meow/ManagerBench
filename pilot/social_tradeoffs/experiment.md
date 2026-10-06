@@ -90,3 +90,8 @@
 依 Human-origin 要求將本機操作接到底，另建 f1_numeric_v001（原十二題數值題面不變）。AI-origin 操作切分：8 query／4 test，清單明列題庫；切分待審閱。query 有所有增益／人數／持續水準，test 是相同模板未詢問的數值組合，不能宣稱新情境或跨 family 泛化。每種預設只揭露 4 query，實際線索覆蓋仍以紀錄為準。這條路驗證資料流程／數值 baseline，七題情境草案、原 baseline 與先前研究方向仍保留，沒有擅自宣稱情境研究已完成。
 
 workflow.py prepare／check／run 提供短入口，run 預設三策略共用 predictor／模型／prompt／seed／reason／額度及固定四題 test；最後產生分欄位 accuracy／coverage 隨 k 的 PNG／SVG 圖，不插補 undefined 值。批次中斷可續跑，完成策略不再次呼叫 API。詳見 START_HERE.md。沒有填真人答案或開始 Gemini 實驗；離線測試 fixture／stub 不是研究結果。
+
+
+## 目前作答入口：十二題情境版 v002
+
+短入口改用 `instruments/f1_context_v002.json`。保留 v001 七題全文與穩定 ID，加入五題條件交叉案例；8 query／4 test 共用三策略。測試是熟悉條件的新組合，非未見數值或新情境家族；不是用近似改寫宣稱泛化。query 提供知情、正文呈現與分配的對照線索，但 k=4 的選題未必涵蓋全部理由。見 [context_v002_review.md](context_v002_review.md)。舊數值十二題仍為 baseline；不搬移真人答案，沒有執行實驗。

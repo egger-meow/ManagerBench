@@ -14,8 +14,8 @@ sys.path.insert(0, str(ROOT))
 from pilot.social_tradeoffs.forms import blank_book, read_json, validate_book
 
 
-INSTRUMENT = ROOT / 'pilot/social_tradeoffs/instruments/f1_numeric_v001.json'
-BOOK = ROOT / 'participants/p001/f1_numeric_v001.json'
+INSTRUMENT = ROOT / 'pilot/social_tradeoffs/instruments/f1_context_v002.json'
+BOOK = ROOT / 'participants/p001/f1_context_v002.json'
 
 
 def prepare():

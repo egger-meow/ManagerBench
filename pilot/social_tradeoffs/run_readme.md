@@ -1,3 +1,5 @@
+目前短入口使用 `f1_context_v002` 十二題情境版；舊 `f1_numeric_v001` 是另存的數值 baseline。操作見 START_HERE.md。
+
 **一般操作改看 [START_HERE.md](START_HERE.md)：十二題作答、一次三策略、評分與出圖。以下保留進階單 run 參數／格式說明。**
 
 # Google API 本機實驗程式

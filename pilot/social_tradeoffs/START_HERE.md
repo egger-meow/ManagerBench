@@ -1,12 +1,12 @@
 # 只照這頁做
 
-**你只填 `participants/p001/f1_numeric_v001.json` 裡每題的 `answer`。不要改 instruments。**
+**你只填 `participants/p001/f1_context_v002.json` 裡每題的 `answer`。不要改 instruments。**
 
-這個作答本共十二題，已產生，全部空白。它沿用原十二題數值 baseline；八題可供詢問，四題留作測試。切分是 AI-origin 待審閱草案，只測同一模板的未詢問數值組合，不能當跨情境泛化。七題情境草案仍保留，這條十二題操作路徑暫不使用它。
+這個作答本共十二題，是情境版：風險事前說明、正文直接／點開曝光、困擾分散／同人反覆，以及 5%／15% 增益交叉安排。八題可供詢問，四題測未詢問的條件組合；不是只換數字，也不宣稱跨情境家族泛化。題庫與切分仍為 AI-origin 待審閱草案。舊數值 baseline 和舊作答本保留，不搬移舊答案。
 
 ## 1. 填答案
 
-開 `participants/p001/f1_numeric_v001.json`，每題只改：
+開 `participants/p001/f1_context_v002.json`，每題只改：
 
 | 欄位 | 填什麼 |
 |---|---|
