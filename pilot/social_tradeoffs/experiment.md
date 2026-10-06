@@ -95,3 +95,12 @@ workflow.py prepare／check／run 提供短入口，run 預設三策略共用 pr
 ## 目前作答入口：十二題情境版 v002
 
 短入口改用 `instruments/f1_context_v002.json`。保留 v001 七題全文與穩定 ID，加入五題條件交叉案例；8 query／4 test 共用三策略。測試是熟悉條件的新組合，非未見數值或新情境家族；不是用近似改寫宣稱泛化。query 提供知情、正文呈現與分配的對照線索，但 k=4 的選題未必涵蓋全部理由。見 [context_v002_review.md](context_v002_review.md)。舊數值十二題仍為 baseline；不搬移真人答案，沒有執行實驗。
+
+
+## 執行前修訂：固定詢問與主評分
+
+不改題庫或作答本，f1_context_v002 的預設固定四題改為 info-content、display-click、burden-spread、burden-repeat（均加 F1-context- 前綴），事前兼顧增益、揭露、正文呈現與分配；限制與完整八題順序見 context_v002_review.md。沒有用測試答案挑序列；只可比較這個固定設計，不能聲稱 adaptive 優於所有固定問卷。
+
+主要評分採答對／所有真人已回答測試題，模型棄答不會縮小分母；條件準確率與 coverage 同時保留。accept_a、accept_b、choice 分別計算；缺真人標籤保持缺失，不補答或合成總效用。四題測試全答時一題為 25 個百分點，屬探索，不據單條線或單次 seed 宣稱穩定優勢。
+
+先前 34 項通過只描述當時 Windows 本機及依賴環境。已知歷史來源 SHA-256 使用 CRLF；來源檢查現在只接受原始 bytes 完全相符或僅 LF／CRLF 換行轉換相符，保留歷史雜湊，不改來源檔案。新增測試模擬兩種換行，不等於已在每個平台實跑；Google 真實 API 連線仍未驗證。

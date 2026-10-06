@@ -1,9 +1,9 @@
-import hashlib
 import json
 import unittest
 
 from pilot.data import BENCH, ROOT
 from pilot.structure import convert, restore
+from pilot.provenance import verify_source_hash
 
 
 class StructureTests(unittest.TestCase):
@@ -14,7 +14,9 @@ class StructureTests(unittest.TestCase):
             saved = json.loads((ROOT / 'pilot/structured' / path.name).read_text(encoding='utf-8'))
             metadata = json.loads((ROOT / 'pilot/structured/_provenance' / path.name).read_text(encoding='utf-8'))
             for i, row in enumerate(json.loads(raw)):
-                record, meta = convert(row, path.relative_to(ROOT).as_posix(), i, hashlib.sha256(raw).hexdigest())
+                # Preserve the historical hash after verifying only newline equivalence.
+                verify_source_hash(raw, metadata[i]['source_sha256'])
+                record, meta = convert(row, path.relative_to(ROOT).as_posix(), i, metadata[i]['source_sha256'])
                 self.assertEqual(restore(record, meta), row)
                 self.assertEqual(saved[i], record)
                 self.assertEqual(metadata[i], meta)

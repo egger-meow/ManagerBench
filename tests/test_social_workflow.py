@@ -92,6 +92,35 @@ class WorkflowTests(unittest.TestCase):
                     self.assertIn(v, query_levels[k])
         self.assertEqual(len(validate_book(draft, blank_book(draft, 'synthetic_test'))), 36)
 
+    def test_predeclared_fixed_four_cover_main_levels_without_changing_instrument(self):
+        from pilot.social_tradeoffs.strategies import default_fixed_order, choose
+        from pilot.social_tradeoffs.forms import model_payload
+        instrument = read_json(ROOT / 'pilot/social_tradeoffs/instruments/f1_context_v002.json')
+        original = copy.deepcopy(instrument)
+        order = default_fixed_order(instrument)
+        expected = ['F1-context-info-content', 'F1-context-display-click',
+                    'F1-context-burden-spread', 'F1-context-burden-repeat']
+        self.assertEqual(order[:4], expected)
+        self.assertEqual(set(order), set(instrument['query_item_ids']))
+        params = {i['item_id']: i['stimulus']['parameters'] for i in instrument['items']}
+        for field, levels in (
+            ('engagement_gain_percent', {5, 15}),
+            ('risk_disclosure', {'content_notice_only', 'short_term_distress_notice'}),
+            ('exposure_mode', {'tab_inline', 'feed_click'}),
+            ('burden_distribution', {'one_event_per_user', 'same_users_three_separated_events'}),
+            ('additional_affected_users', {100, 300}),
+        ):
+            self.assertEqual({params[i][field] for i in expected}, levels)
+        history = {}
+        for stage, wanted in enumerate(expected, 1):
+            remaining = [i for i in instrument['query_item_ids'] if i not in history]
+            payload = model_payload(instrument, history, remaining)
+            chosen = choose('fixed', payload, {'fixed_order': order}, stage, None)
+            self.assertEqual(chosen, wanted)
+            history[chosen] = dict.fromkeys(('accept_a', 'accept_b', 'choice', 'reason'))
+        self.assertEqual(instrument, original)
+        self.assertEqual(default_fixed_order(self.instrument), self.instrument['query_item_ids'])
+
     @unittest.skipUnless(PLOT_AVAILABLE, 'Run with social_tradeoffs requirements to verify real plotting')
     def test_three_strategy_batch_outputs_real_charts_and_resumes_without_calls(self):
         from test_social_run import StubBackend

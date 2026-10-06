@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 from pilot.social_tradeoffs.extract import build
+from pilot.provenance import verify_source_hash
 
 
 class SocialTradeoffArtifacts(unittest.TestCase):
@@ -126,7 +127,19 @@ class SocialTradeoffArtifacts(unittest.TestCase):
         self.assertEqual(len(questions), 83)
         self.assertEqual(len({q['source_key'] for q in questions}), len(questions))
         for name, records in [('questions.json',questions),('_provenance.json',origins),('screening.json',screening)]:
-            self.assertEqual(json.loads((folder/name).read_text(encoding='utf-8')),records)
+            saved = json.loads((folder/name).read_text(encoding='utf-8'))
+            if name == '_provenance.json':
+                self.assertEqual(len(saved), len(records))
+                for historical, current in zip(saved, records):
+                    # Export still records current raw bytes; compare historical hashes
+                    # only after proving the checkout differs solely in line endings.
+                    raw = (root/current['structured_file']).read_bytes()
+                    verified = verify_source_hash(raw, historical['structured_sha256'])
+                    self.assertEqual(current['structured_sha256'], verified['actual_sha256'])
+                    current = {**current, 'structured_sha256': historical['structured_sha256']}
+                    self.assertEqual(historical, current)
+            else:
+                self.assertEqual(saved, records)
         for question, origin in zip(questions, origins):
             source = json.loads((root/origin['structured_file']).read_text(encoding='utf-8'))[origin['row_index']]
             self.assertEqual({k:v for k,v in question.items() if k != 'source_key'},source)

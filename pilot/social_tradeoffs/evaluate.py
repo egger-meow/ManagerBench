@@ -17,7 +17,9 @@ def score(instrument, book, stages):
                 'abstentions_all_test_items': sum(predictions[i][field] is None for i in test_ids),
                 'coverage': predicted / available if available else None,
                 'correct': correct, 'accuracy': correct / predicted if predicted else None,
+                'accuracy_all_answered': correct / available if available else None,
             }
         reports.append({'stage': stage, 'fields': fields})
-    return {'scoring_version': 'social-exact-v1', 'stages': reports,
-            'note': 'reason 不評分；資訊不足、拒絕與不確定是有效類別；null 才是缺答／棄答'}
+    return {'scoring_version': 'social-exact-v2', 'primary_metric': 'accuracy_all_answered',
+            'stages': reports,
+            'note': '主指標為答對／真人已回答題；accuracy 保留答對／模型有預測且真人有答案題。reason 不評分；資訊不足、拒絕與不確定是有效類別；null 才是缺答／棄答'}

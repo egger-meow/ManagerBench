@@ -12,7 +12,7 @@ from .forms import digest, model_payload, read_json, validate_book, validate_ins
 from .llm import JournalClient, usage_report
 from .predictor import predict
 from .storage import now, run_lock, save, save_lines
-from .strategies import choose
+from .strategies import choose, default_fixed_order
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -187,7 +187,7 @@ def main():
     parser.add_argument('--strategy', choices=('fixed', 'random', 'adaptive', 'all'), default='fixed')
     parser.add_argument('--max-questions', type=int, default=4)
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--fixed-order', nargs='+')
+    parser.add_argument('--fixed-order', nargs='+', help='Override predeclared instrument-specific fixed order')
     parser.add_argument('--include-reason', action='store_true', default=False)
     parser.add_argument('--temperature', type=float, default=0.0)
     parser.add_argument('--max-output-tokens', type=int, default=8192)
@@ -232,7 +232,7 @@ def main():
             config = {
                 'strategy': args.strategy, 'seed': args.seed, 'query_limit': args.max_questions,
                 'include_reason': args.include_reason,
-                'fixed_order': args.fixed_order if args.fixed_order is not None else instrument['query_item_ids'],
+                'fixed_order': args.fixed_order if args.fixed_order is not None else default_fixed_order(instrument),
                 'query_order': instrument['query_item_ids'], 'model': args.model,
                 'max_api_attempts': args.max_api_attempts,
                 'generation_settings': {'temperature': args.temperature,

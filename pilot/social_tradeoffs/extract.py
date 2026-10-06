@@ -4,6 +4,8 @@ import json
 import re
 from pathlib import Path
 
+from pilot.provenance import verify_source_hash
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(__file__).resolve().parent
 # Zero-based source rows. Explicit decisions, not a harm_type/title classifier.
@@ -59,7 +61,7 @@ def build():
         rows = json.loads(path.read_text(encoding='utf-8'))
         origins = json.loads((ROOT / 'structured/_provenance' / path.name).read_text(encoding='utf-8'))
         source_path = ROOT.parent / origins[0]['source_file']
-        assert digest(source_path) == origins[0]['source_sha256'], path.name
+        verify_source_hash(source_path.read_bytes(), origins[0]['source_sha256'])
         for index, row in enumerate(rows):
             total += 1
             sid = f'{path.stem}:{index}'

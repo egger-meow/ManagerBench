@@ -48,6 +48,8 @@ uv run --env-file .env pilot/social_tradeoffs/workflow.py run --model YOUR_GOOGL
 
 預設：**固定、隨機、適應式全跑；每種最多揭露 4 題；seed=42；reason 不提供模型。** 先做 k=0，再在 k=1..4 每階段預測同一批四題 test，最後評分。填十二題不代表把十二題答案送給模型；test 答案永不送出。正常無重試時共 19 次 API 請求。
 
+固定四題已預先指定，依序為 `F1-context-info-content`、`F1-context-display-click`、`F1-context-burden-spread`、`F1-context-burden-repeat`。涵蓋 5%／15%、有／無困擾說明、直接／點開正文、分散／反覆困擾；理由與限制見 [context_v002_review.md](context_v002_review.md)。選題不依你的答案。`--fixed-order` 可覆寫，但比較前須先指定；實際順序寫進 run 設定。作答本不需改動。
+
 只需改這幾個參數：
 
 | 參數 | 用途／預設 |
@@ -63,7 +65,7 @@ uv run --env-file .env pilot/social_tradeoffs/workflow.py run --model YOUR_GOOGL
 
 完成會印出結果資料夾，在 `runs/<run_id>/` 有：
 
-- `comparison.png`／`comparison.svg`：三策略隨 k 的準確率與預測 coverage 比較圖，A/B 接受性與 choice 分開畫。沒有分母的值留缺口，不畫成零。
+- `comparison.png`／`comparison.svg`：三列分別為主指標、條件準確率、coverage，A/B 接受性與 choice 分開畫。主指標是「答對／所有真人已回答測試題」，模型棄答也計入分母；條件準確率僅計模型有預測且真人有答案的題。沒有真人答案的欄位不評分、圖留缺口。
 - `comparison.json`：三策略分數與用量。
 - 三個子 run 資料夾（名稱為 `<run_id>-fixed` 等）：設定、答案快照、逐題揭露、API 輸入輸出、各階段預測、分數與用量。
 
@@ -80,3 +82,5 @@ uv run --env-file .env pilot/social_tradeoffs/workflow.py run --resume runs/YOUR
 已完成策略與已保存回覆不重跑。沿用當時答案快照，不會偷讀你後來改的答案。送出狀態不明時會停下避免重複付費；確認後才能加 `--retry-ambiguous`，它可能重複收費。
 
 程式和圖表已用合成 fixture／API stub 離線驗證；尚未對 Google 實際連線，也沒有真人實驗結果。詳細研究材料在 README／experiment.md，進階紀錄格式在 run_readme.md；實際操作先照本頁。
+
+四題測試全有真人答案時，每欄答對一題就是主指標 25 個百分點；本輪是探索結果。只預測一題且答對時，主指標 25%、條件準確率 100%、coverage 25%，不能只看條件準確率判定策略勝負。本機測試通過不代表所有作業系統已驗證；來源檢查另涵蓋 LF／CRLF 換行差異。

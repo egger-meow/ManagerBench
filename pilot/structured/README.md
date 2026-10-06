@@ -86,3 +86,10 @@ scenario，均保留。未獨立映射出的 key：scenario_title 159 題、oper
 參數 occurrences 中 1,677 個無局部語意線索、1 個多候選；這是語意待確認，
 不是丟資料。長距離修飾、否定、百分比基準與因果仍需人工閱讀原文。
 完整摘要見 `_provenance/summary.json`；各題問題見對應 sidecar 的 issues。
+
+
+## 來源雜湊與跨平台換行
+
+已保存 source_sha256 是整理當時 Windows CRLF 檔案的原始 byte 雜湊，不是 JSON 語意雜湊。Git 的 LF checkout 會有不同的 raw SHA-256。`pilot.provenance.verify_source_hash` 明確分別回報 actual_sha256、recorded_sha256 和驗證方式，只接受完全相符或 LF／CRLF 轉換；不忽略空白、內容、JSON 中跳脫換行或多一個空行。原始資料與已保存雜湊保留不重寫。
+
+重建／audit 仍記錄當地實際 raw hash，因此跨平台重建 provenance 的 raw hash 可不同。重現測試先驗證上述換行等價，再逐欄比較所有題目與 metadata；這不代表兩個 raw hash 相同。測試含 LF／CRLF 模擬，不構成每個作業系統已實跑的證據。

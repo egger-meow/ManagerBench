@@ -44,7 +44,7 @@ API key 只放本機 `GEMINI_API_KEY` 環境變數，或被忽略的 repo 根 `.
 uv --cache-dir .uv-cache run --no-project --with-requirements pilot/social_tradeoffs/requirements.txt --env-file .env python -m pilot.social_tradeoffs.run --instrument pilot/social_tradeoffs/instruments/reviewed_instrument.json --responses participants/p001/reviewed_instrument.json --strategy adaptive --model YOUR_GOOGLE_MODEL_ID --max-questions 4 --seed 42
 ```
 
-已有環境變數時省略 `--env-file .env`。固定／隨機策略改 `--strategy fixed`／`random`；固定預設為 query 清單順序，或用 `--fixed-order ID1 ID2 ...` 指定事先順序，至少足夠詢問上限。其餘三策略設定保持一致。可用 `--run-id` 指定新名稱，省略則產生 UUID；既有目錄即拒絕覆寫。
+已有環境變數時省略 `--env-file .env`。固定／隨機策略改 `--strategy fixed`／`random`；f1_context_v002 固定預設為事先指定的覆蓋序列（info-content、display-click、burden-spread、burden-repeat 開頭）；其他題庫預設為 query 清單順序，或用 `--fixed-order ID1 ID2 ...` 指定事先順序，至少足夠詢問上限。其餘三策略設定保持一致。可用 `--run-id` 指定新名稱，省略則產生 UUID；既有目錄即拒絕覆寫。
 
 每次先預測 stage 0，接著選一個 ID、保存 selection、從答案快照取 query 答案、保存 event，才做下一階段預測。到 max-questions（可以是 0）後，所有預測先保存，再評分。回覆的中文「不確定」等是對真人類別的預測；null 是模型棄答。reason 不評分。不詢問是未個人化的基線，不代表已知群體先驗。
 
@@ -74,6 +74,9 @@ Google 模型可用性、實際 API 回覆格式及收費均未驗證；未宣�
 
 ## 三策略批次與圖表
 
-`--strategy all` 會凍結三個相同題庫／答案／設定／prompt 的子 run，只改選題策略。批次目錄保存 batch.json、comparison.json、comparison.png／svg；子 run 為同層 `<batch_id>-fixed`／random／adaptive。批次 --resume 會跳過完成的子 run，繼續未完成者，最後出圖。單策略完成也會出圖。圖表以各欄位 accuracy 與 coverage 隨已揭露題數 k 畫線；未定義的值留缺口，不插補。
+`--strategy all` 會凍結三個相同題庫／答案／設定／prompt 的子 run，只改選題策略。批次目錄保存 batch.json、comparison.json、comparison.png／svg；子 run 為同層 `<batch_id>-fixed`／random／adaptive。批次 --resume 會跳過完成的子 run，繼續未完成者，最後出圖。單策略完成也會出圖。圖表以各欄位主指標 accuracy_all_answered、條件 accuracy 與 coverage 隨已揭露題數 k 畫線；未定義的值留缺口，不插補。
 
-簡化入口 workflow.py 使用 PEP 723 固定 google-genai==2.28.0 與 matplotlib==3.11.2，自動建立獨立環境（Python 3.11+），不用上游 GPU 依賴。prepare／check 不需要 API key、不呼叫 API；run 預設指向十二題 numeric baseline 且 strategy=all，其餘沿用本文件的上限／seed／reason 規則。
+簡化入口 workflow.py 使用 PEP 723 固定 google-genai==2.28.0 與 matplotlib==3.11.2，自動建立獨立環境（Python 3.11+），不用上游 GPU 依賴。prepare／check 不需要 API key、不呼叫 API；run 預設指向十二題情境版 f1_context_v002 且 strategy=all，其餘沿用本文件的上限／seed／reason 規則。
+
+
+評分版本 `social-exact-v2`：主指標 `accuracy_all_answered = correct / labels_available`，棄答算未答對；舊 `accuracy = correct / predictions_on_available_labels` 與 `coverage` 保留。真人未回答不進分母；真人的不確定／資訊不足／拒絕仍是有效標籤。四題全回答時一題就是 25 個百分點；只能作探索，不能只看條件 accuracy。程式雜湊改變後，舊 run 不會用新程式默默續跑或重評；歷史結果保留。
