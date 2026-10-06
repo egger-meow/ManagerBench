@@ -21,7 +21,7 @@ PACKAGE = Path(__file__).resolve().parent
 
 def code_hash():
     names = ('run.py', 'llm.py', 'strategies.py', 'predictor.py', 'evaluate.py',
-             'storage.py', 'forms.py', 'requirements.txt')
+             'storage.py', 'forms.py', 'requirements.txt', 'batch.py', 'plotting.py')
     return digest({name: hashlib.sha256((PACKAGE / name).read_bytes()).hexdigest() for name in names})
 
 
@@ -184,7 +184,7 @@ def main():
     parser.add_argument('--instrument', type=Path)
     parser.add_argument('--responses', type=Path)
     parser.add_argument('--model', help='Google Gemini model ID; no implicit model default')
-    parser.add_argument('--strategy', choices=('fixed', 'random', 'adaptive'), default='fixed')
+    parser.add_argument('--strategy', choices=('fixed', 'random', 'adaptive', 'all'), default='fixed')
     parser.add_argument('--max-questions', type=int, default=4)
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--fixed-order', nargs='+')
@@ -210,7 +210,14 @@ def main():
             folder = args.resume.resolve()
             if folder.parent != (ROOT / 'runs').resolve() or not folder.is_dir():
                 raise ValueError('只能續跑本機 runs/<run_id>/')
-            manifest, _, _, _ = load_run(folder)
+            if (folder / 'batch.json').exists():
+                batch = read_json(folder / 'batch.json')
+                child = batch['children']['fixed']
+                if child != folder.name + '-fixed':
+                    raise ValueError('子 run 路徑不一致')
+                manifest, _, _, _ = load_run(folder.parent / child)
+            else:
+                manifest, _, _, _ = load_run(folder)
             if manifest['llm']['sdk_version'] != sdk_version:
                 raise ValueError('SDK 版本與 run 不一致，不能用不同版本續跑')
         else:
@@ -237,10 +244,20 @@ def main():
             if not re.fullmatch(r'[A-Za-z0-9_-]+', run_id):
                 raise ValueError('run_id 格式錯誤')
             folder = ROOT / 'runs' / run_id
-            initialize(folder, instrument, book, config, sdk_version=sdk_version)
+            if args.strategy == 'all':
+                from .batch import initialize_batch
+                initialize_batch(folder, instrument, book, config, sdk_version=sdk_version)
+            else:
+                initialize(folder, instrument, book, config, sdk_version=sdk_version)
         print(f'本地 run：{folder}；API 呼叫可能產生費用。', flush=True)
-        execute(folder, retry_ambiguous=args.retry_ambiguous)
-        print(f'完成；結果保存於 {folder}')
+        if (folder / 'batch.json').exists():
+            from .batch import execute_batch
+            execute_batch(folder, retry_ambiguous=args.retry_ambiguous)
+        else:
+            from .plotting import plot_scores
+            scores = execute(folder, retry_ambiguous=args.retry_ambiguous)
+            plot_scores(folder, {read_json(folder / 'manifest.json')['config']['strategy']: scores})
+        print(f'完成；結果與 comparison.png／comparison.svg 保存於 {folder}')
     except (ValueError, KeyError, TypeError, OSError, RuntimeError, importlib.metadata.PackageNotFoundError) as error:
         parser.exit(1, f'錯誤：{error}\n')
 

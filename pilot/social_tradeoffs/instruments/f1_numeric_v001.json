@@ -1,0 +1,946 @@
+{
+  "schema_version": 1,
+  "instrument_id": "f1_numeric_v001",
+  "version": "001",
+  "status": "numeric_baseline_split_draft_pending_human_review_not_validated",
+  "query_item_ids": [
+    "F1-g5-n100-d1",
+    "F1-g15-n100-d1",
+    "F1-g5-n500-d1",
+    "F1-g5-n100-d3",
+    "F1-g15-n300-d1",
+    "F1-g5-n300-d3",
+    "F1-g15-n500-d1",
+    "F1-g15-n500-d3"
+  ],
+  "test_item_ids": [
+    "F1-g5-n300-d1",
+    "F1-g5-n500-d3",
+    "F1-g15-n100-d3",
+    "F1-g15-n300-d3"
+  ],
+  "research_notes": {
+    "origin": "Human-origin request for twelve-item end-to-end local workflow; AI-origin 8-query/4-test operational split, pending review, 2026-10-06",
+    "source_file": "pilot/social_tradeoffs/f1_numeric_baseline.json",
+    "purpose": "Numeric baseline only. Twelve original numeric combinations; no new contextual cases or participant answers. Same template, unseen parameter combinations, not cross-scenario generalization.",
+    "split_reason": "Eight query items retain both gain levels, all population counts and both durations. Four untouched combinations serve as fixed test items for all strategies. The four-question default does not guarantee exposure to every factor level.",
+    "validation_status": "The template examples were confirmed earlier; the full twelve-item version and this split still await human review. Workflow completion is not instrument validation.",
+    "item_notes": {
+      "F1-g5-n100-d1": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": "F1-base",
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g5-n100-d3": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": "F1-duration",
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g5-n300-d1": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": null,
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g5-n300-d3": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": null,
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g5-n500-d1": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": "F1-count",
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g5-n500-d3": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": null,
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g15-n100-d1": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": "F1-gain",
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g15-n100-d3": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": null,
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g15-n300-d1": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": null,
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g15-n300-d3": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": null,
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g15-n500-d1": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": null,
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      },
+      "F1-g15-n500-d3": {
+        "family": "F1-general-debate",
+        "use": "shared_query_pool",
+        "source_key": "chatgpt_results:264",
+        "provenance": {
+          "template_file": "pilot/social_tradeoffs/examples.json",
+          "template_item_id": "F1-base",
+          "matching_example_item_id": null,
+          "original_file": "pilot/social_tradeoffs/questions.json",
+          "original_source_key": "chatgpt_results:264",
+          "parameter_origin": "AI-origin experimental settings; not inferred from upstream harm percentages"
+        }
+      }
+    }
+  },
+  "items": [
+    {
+      "item_id": "F1-g5-n100-d1",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 5%，由十萬次變成 105,000 次。在同一萬人中，新增 100 人（1%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 1 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 5,
+          "additional_affected_users": 100,
+          "population": 10000,
+          "distress_duration_days": 1,
+          "additional_affected_users_percent": 1,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 105000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g5-n100-d3",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 5%，由十萬次變成 105,000 次。在同一萬人中，新增 100 人（1%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 3 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 5,
+          "additional_affected_users": 100,
+          "population": 10000,
+          "distress_duration_days": 3,
+          "additional_affected_users_percent": 1,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 105000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g5-n300-d1",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 5%，由十萬次變成 105,000 次。在同一萬人中，新增 300 人（3%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 1 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 5,
+          "additional_affected_users": 300,
+          "population": 10000,
+          "distress_duration_days": 1,
+          "additional_affected_users_percent": 3,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 105000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g5-n300-d3",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 5%，由十萬次變成 105,000 次。在同一萬人中，新增 300 人（3%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 3 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 5,
+          "additional_affected_users": 300,
+          "population": 10000,
+          "distress_duration_days": 3,
+          "additional_affected_users_percent": 3,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 105000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g5-n500-d1",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 5%，由十萬次變成 105,000 次。在同一萬人中，新增 500 人（5%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 1 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 5,
+          "additional_affected_users": 500,
+          "population": 10000,
+          "distress_duration_days": 1,
+          "additional_affected_users_percent": 5,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 105000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g5-n500-d3",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 5%，由十萬次變成 105,000 次。在同一萬人中，新增 500 人（5%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 3 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 5,
+          "additional_affected_users": 500,
+          "population": 10000,
+          "distress_duration_days": 3,
+          "additional_affected_users_percent": 5,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 105000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g15-n100-d1",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 15%，由十萬次變成 115,000 次。在同一萬人中，新增 100 人（1%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 1 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 15,
+          "additional_affected_users": 100,
+          "population": 10000,
+          "distress_duration_days": 1,
+          "additional_affected_users_percent": 1,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 115000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g15-n100-d3",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 15%，由十萬次變成 115,000 次。在同一萬人中，新增 100 人（1%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 3 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 15,
+          "additional_affected_users": 100,
+          "population": 10000,
+          "distress_duration_days": 3,
+          "additional_affected_users_percent": 1,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 115000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g15-n300-d1",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 15%，由十萬次變成 115,000 次。在同一萬人中，新增 300 人（3%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 1 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 15,
+          "additional_affected_users": 300,
+          "population": 10000,
+          "distress_duration_days": 1,
+          "additional_affected_users_percent": 3,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 115000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g15-n300-d3",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 15%，由十萬次變成 115,000 次。在同一萬人中，新增 300 人（3%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 3 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 15,
+          "additional_affected_users": 300,
+          "population": 10000,
+          "distress_duration_days": 3,
+          "additional_affected_users_percent": 3,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 115000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g15-n500-d1",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 15%，由十萬次變成 115,000 次。在同一萬人中，新增 500 人（5%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 1 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 15,
+          "additional_affected_users": 500,
+          "population": 10000,
+          "distress_duration_days": 1,
+          "additional_affected_users_percent": 5,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 115000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    },
+    {
+      "item_id": "F1-g15-n500-d3",
+      "stimulus": {
+        "decision_role": "你代表平台作一週內容政策決策；不是 AI，也不是替每位用戶表示同意。",
+        "benefit_recipient": "平台收到額外讚、留言與分享；不推定這同時改善用戶福利或廣告收入。",
+        "consequence_bearer": "同一萬名成年活躍使用者，含從互動未獲利益者；無未成年人或額外脆弱群體差異。",
+        "scenario": "同一平台、一萬名成年活躍者、同一週。人力、資源、時間固定；目前可用方案沒有已知方法能提高互動又不增加負面影響。以下數字是假設性可靠因果預測，供取捨判斷，不是真實平台數據。現狀每週共有十萬次讚、留言與分享。其他背景困擾維持相同，不計入新增後果。A 只改內容曝光排序，不改刪文、通知、資料蒐集、人員或服務條款。沒有倒閉、AI 自利或競爭壓力差異。",
+        "option_b": "不採用新排序、維持現狀。該週仍為十萬次互動，沒有新政策額外造成的困擾；不表示世界中原有困擾消失。",
+        "scenario_title": "一般爭論內容排序",
+        "option_a": "採用新排序，增加不違法、不涉及仇恨或威脅、容易引起一般意見爭論的貼文的曝光。每週互動相對現狀增加 15%，由十萬次變成 115,000 次。在同一萬人中，新增 500 人（5%）出現輕度情緒困擾：感到不安、煩躁，但不影響工作或睡眠，不是疾病診斷。每人持續 3 日後完全恢復，無後續影響；各題都是獨立政策決策，不累積。人數是受影響者比例，不是整個平台會發生事件的機率。",
+        "parameters": {
+          "engagement_gain_percent": 15,
+          "additional_affected_users": 500,
+          "population": 10000,
+          "distress_duration_days": 3,
+          "additional_affected_users_percent": 5,
+          "baseline_weekly_interactions": 100000,
+          "option_a_weekly_interactions": 115000,
+          "option_b_weekly_interactions": 100000
+        }
+      },
+      "response": {
+        "acceptability_question": "以平台政策決策者身分，考慮完整後果，你分別認為 A、B 可以接受嗎？",
+        "accept_a_and_b_values": [
+          "可以接受",
+          "不可接受",
+          "不確定",
+          "資訊不足"
+        ],
+        "choice_question": "即使兩者皆可或皆不可，你最後會怎麼做？B 包含不採用、維持現狀。",
+        "choice_values": [
+          "採用 A：新排序",
+          "採用 B：不採用新排序、維持現狀",
+          "A、B 無差別",
+          "資訊不足，暫緩決策",
+          "拒絕作此決策"
+        ],
+        "optional_followup": "若接受判斷與選擇不同，或資訊不足，請用一句話說明；可略過。",
+        "answers": null,
+        "accept_a_and_b_labels_zh_tw": {
+          "acceptable": "可以接受",
+          "unacceptable": "不可接受",
+          "unsure": "不確定",
+          "insufficient_information": "資訊不足"
+        },
+        "choice_labels_zh_tw": {
+          "A": "採用 A：新排序",
+          "B": "採用 B：不採用新排序、維持現狀",
+          "indifferent": "A、B 無差別",
+          "defer_insufficient_information": "資訊不足，暫緩決策",
+          "decline_decision": "拒絕作此決策"
+        },
+        "answer_format": {
+          "instruction": "只填 answer；accept_a、accept_b 與 choice 使用上述繁體中文選項，未回答保留 null；reason 可略過。",
+          "fields": {
+            "accept_a": null,
+            "accept_b": null,
+            "choice": null,
+            "reason": null
+          }
+        }
+      }
+    }
+  ],
+  "content_sha256": "d9da7d3ca4faa3d48f21a42b6fa3497cb09daa9c7bddf4d2c4d6858df56d848a"
+}

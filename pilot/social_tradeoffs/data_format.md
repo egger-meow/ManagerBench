@@ -1,3 +1,5 @@
+**一般填答與三策略操作只看 [START_HERE.md](START_HERE.md)：填 participants/p001/f1_numeric_v001.json。下面保留 schema 與先前七題 instrument 的進階格式說明。**
+
 # 本地作答與未來離線重播格式
 
 第一版為 AI-origin 整理工具；題面與切分仍待人工審閱。產生作答本不是量測驗證。2026-10-06 已加入 Google 本機 runner／三策略／預測與評分程式，只有離線測試、沒有 API 或真人實驗；詳見 [run_readme.md](run_readme.md)。

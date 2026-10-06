@@ -1,6 +1,8 @@
+**一般操作改看 [START_HERE.md](START_HERE.md)：十二題作答、一次三策略、評分與出圖。以下保留進階單 run 參數／格式說明。**
+
 # Google API 本機實驗程式
 
-2026-10-06：程式已建立，只有離線 synthetic fixture／API stub 測試，**沒有 Google API 呼叫、真人實驗或研究結果**。題庫及切分仍待審閱；`f1_context_v001` 的 test 清單為空，入口會在 API 呼叫前拒絕執行。這次沒有另造測試題或填真人答案。
+2026-10-06：程式已建立，只有離線 synthetic fixture／API stub 測試，**沒有 Google API 呼叫、真人實驗或研究結果**。題庫及切分仍待審閱；`f1_context_v001` 的 test 清單為空，入口會在 API 呼叫前拒絕執行。另已加入 f1_numeric_v001：沿用原十二題 baseline，8 query／4 test 操作切分為 AI-origin 待審閱草案，不新增題面或填真人答案。
 
 ## 程式職責
 
@@ -67,3 +69,9 @@ SDK 自動重試關閉。每個邏輯呼叫預設至多 3 次嘗試（可用 `--
 離線測試涵蓋三策略、k=0、答案逐步揭露、selector 無測試題／預測、reason 開關、部分作答與評分分母、隨機續跑一致、已保存回覆重用、狀態不明停止／明確重送、快照變更與同時續跑拒絕。測試 split／答案全部標為 synthetic fixture，位於暫存目錄，不修改公開題庫或 p001。
 
 Google 模型可用性、實際 API 回覆格式及收費均未驗證；未宣稱模型效果、題庫驗證或真人研究完成。題庫仍待人工審閱；測試池為空是已知前置缺口，程式不自行把七題任意切分。
+
+## 三策略批次與圖表
+
+`--strategy all` 會凍結三個相同題庫／答案／設定／prompt 的子 run，只改選題策略。批次目錄保存 batch.json、comparison.json、comparison.png／svg；子 run 為同層 `<batch_id>-fixed`／random／adaptive。批次 --resume 會跳過完成的子 run，繼續未完成者，最後出圖。單策略完成也會出圖。圖表以各欄位 accuracy 與 coverage 隨已揭露題數 k 畫線；未定義的值留缺口，不插補。
+
+簡化入口 workflow.py 使用 PEP 723 固定 google-genai==2.28.0 與 matplotlib==3.11.2，自動建立獨立環境（Python 3.11+），不用上游 GPU 依賴。prepare／check 不需要 API key、不呼叫 API；run 預設指向十二題 numeric baseline 且 strategy=all，其餘沿用本文件的上限／seed／reason 規則。

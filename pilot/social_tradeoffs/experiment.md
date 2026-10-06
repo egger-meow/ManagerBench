@@ -84,3 +84,9 @@
 在上述資料整理後，另依 Human-origin 指示架設本機 Google API 流程：固定／隨機／LLM 適應式選題，皆共用相同 predictor；先做 k=0，再逐題揭露與預測，所有預測保存後才評分。每次請求重新組合允許的資料，沒有共用 chat history；測試題不回流選題者。程式與續跑紀錄見 [run_readme.md](run_readme.md)。先前「未實作 runner／策略」描述保留為該階段歷史；現已實作程式，仍沒有 API／真人實驗或研究結果。
 
 這次沒有改題庫、凍結測試切分、補真人答案或擴大研究範圍。測試使用明標合成 fixture／API stub，不能當作模型或真人證據。正式三策略比較仍需人工審閱 instrument、填答，並凍結共同測試、預測 prompt／模型／生成設定／reason 規則與額度。
+
+## 十二題操作 baseline 與一鍵比較（2026-10-06）
+
+依 Human-origin 要求將本機操作接到底，另建 f1_numeric_v001（原十二題數值題面不變）。AI-origin 操作切分：8 query／4 test，清單明列題庫；切分待審閱。query 有所有增益／人數／持續水準，test 是相同模板未詢問的數值組合，不能宣稱新情境或跨 family 泛化。每種預設只揭露 4 query，實際線索覆蓋仍以紀錄為準。這條路驗證資料流程／數值 baseline，七題情境草案、原 baseline 與先前研究方向仍保留，沒有擅自宣稱情境研究已完成。
+
+workflow.py prepare／check／run 提供短入口，run 預設三策略共用 predictor／模型／prompt／seed／reason／額度及固定四題 test；最後產生分欄位 accuracy／coverage 隨 k 的 PNG／SVG 圖，不插補 undefined 值。批次中斷可續跑，完成策略不再次呼叫 API。詳見 START_HERE.md。沒有填真人答案或開始 Gemini 實驗；離線測試 fixture／stub 不是研究結果。

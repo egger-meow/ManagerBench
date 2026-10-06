@@ -1,3 +1,11 @@
+# 先填這裡
+
+**只填 `participants/p001/f1_numeric_v001.json` 各題的 `answer`，不要改 instruments。**
+
+十二題作答本已產生。完整操作只看 [START_HERE.md](START_HERE.md)：填答 → `workflow.py check` → `workflow.py run --model ...`，預設三策略全跑並產生比較圖。API 尚未呼叫，下面的原題、七題情境草案與 baseline 都保留作研究材料。十二題 baseline 的 8 query／4 test 切分為待審閱草案，只測同一模板數值組合。
+
+---
+
 # 社群內容取捨：研究討論 pilot
 
 2026-10-05。沒有真人答案、模型實驗或研究結果。本目錄含公開原題、AI-origin 分析、假設性改造及本機 Google 實驗程式；題庫仍待審閱，不是已驗證的正式問卷。
@@ -87,9 +95,9 @@ git diff --check
 
 ## 直接填 JSON
 
-開啟 repo 根目錄的 `participants/p001/f1_context_v001.json`，只編輯每題 `answer.accept_a`、`answer.accept_b`、`answer.choice`、`answer.reason`。前三欄使用題目列出的完整繁體中文選項或 null；reason 為自由文字或 null。完整命令與選項表見 [資料格式](data_format.md)。已產生的 p001 全為空白；檔案被 git 忽略，產生工具拒絕覆寫既有本。公開題庫無真人答案。
+實際操作統一看 [START_HERE.md](START_HERE.md)。目前只填 `participants/p001/f1_numeric_v001.json` 各題 answer；共十二題數值 baseline。用 workflow.py check 驗證，workflow.py run 預設三策略並出圖。不要改 instruments。
 
-`f1_question_pool.json` 保留上輪情境草案與研究對照；`instruments/` 是後續作答及重播的版本入口，不是宣稱已凍結正式量測。新增題面／切分另建版本、重新產生空白作答本。當前 test 清單為空，尚不能做留出評估；本次未啟動實驗。
+七題情境 instrument 是保留的另一份待審閱研究草案；這條十二題操作路徑使用新的 numeric instrument，不混用兩份答案。所有題庫改版仍需另建版本，舊答案不自動遷移。
 
 ## Google 本機程式（已架設，未執行實驗）
 
