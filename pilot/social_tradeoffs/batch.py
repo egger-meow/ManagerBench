@@ -31,7 +31,7 @@ def initialize_batch(folder, instrument, book, config, *, sdk_version):
     save(folder / 'batch.json', manifest)
 
 
-def execute_batch(folder, backend_factory=None, *, retry_ambiguous=False):
+def execute_batch(folder, backend_factory=None, *, retry_ambiguous=False, allow_code_update=False):
     from .run import execute, load_run
     from .plotting import plot_scores
     folder = Path(folder)
@@ -46,7 +46,7 @@ def execute_batch(folder, backend_factory=None, *, retry_ambiguous=False):
             child_id = batch['children'][strategy]
             if child_id != folder.name + '-' + strategy:
                 raise ValueError('子 run 路徑不一致')
-            manifest, _, _, _ = load_run(folder.parent / child_id)
+            manifest, _, _, _ = load_run(folder.parent / child_id, allow_code_update=allow_code_update)
             config = manifest['config']
             if (config['strategy'] != strategy or
                     manifest['instrument_sha256'] != batch['instrument_sha256'] or
@@ -61,8 +61,15 @@ def execute_batch(folder, backend_factory=None, *, retry_ambiguous=False):
         for strategy in STRATEGIES:
             child = folder.parent / batch['children'][strategy]
             print(f'執行／續跑：{strategy}', flush=True)
-            backend = backend_factory(strategy) if backend_factory else None
-            reports[strategy] = execute(child, backend, retry_ambiguous=retry_ambiguous)
+            if backend_factory:
+                backend = backend_factory(strategy)
+            elif (child / 'manifest.json').exists() and read_json(child / 'manifest.json')['config'].get('backend') == 'agent':
+                from .agent_backend import AgentBackend
+                backend = AgentBackend(folder=child)
+            else:
+                backend = None
+            reports[strategy] = execute(child, backend, retry_ambiguous=retry_ambiguous,
+                                        allow_code_update=allow_code_update)
         summary = {'schema_version': 1, 'batch_id': folder.name, 'children': batch['children'],
                    'reports': reports, 'usage': {s: read_json(folder.parent / i / 'usage.json')
                                                for s, i in batch['children'].items()}}

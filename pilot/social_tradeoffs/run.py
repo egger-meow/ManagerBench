@@ -21,7 +21,8 @@ PACKAGE = Path(__file__).resolve().parent
 
 def code_hash():
     names = ('run.py', 'llm.py', 'strategies.py', 'predictor.py', 'evaluate.py',
-             'storage.py', 'forms.py', 'requirements.txt', 'batch.py', 'plotting.py')
+             'storage.py', 'forms.py', 'requirements.txt', 'batch.py', 'plotting.py',
+             'agent_backend.py')
     return digest({name: hashlib.sha256((PACKAGE / name).read_bytes()).hexdigest() for name in names})
 
 
@@ -48,13 +49,15 @@ def validate_config(instrument, book, config):
         raise ValueError('API 嘗試上限須為 1 至 5')
     if not isinstance(config['model'], str) or not re.fullmatch(r'[A-Za-z0-9._-]+', config['model']):
         raise ValueError('請指定 Google 模型 ID，不含 API key 或網址')
+    if config.get('backend') not in (None, 'google', 'agent'):
+        raise ValueError('未知 backend')
     truth = {item['item_id']: item['answer'] for item in book['items']}
     if not any(truth[i][f] is not None for i in instrument['test_item_ids']
                for f in ('accept_a', 'accept_b', 'choice')):
         raise ValueError('測試題完全未回答；請先填作答本，不進行付費空評分')
 
 
-def load_run(folder):
+def load_run(folder, allow_code_update=False):
     manifest = read_json(folder / 'manifest.json')
     if manifest.get('manifest_sha256') != digest({k: v for k, v in manifest.items() if k != 'manifest_sha256'}):
         raise ValueError('run manifest 設定雜湊不一致')
@@ -63,26 +66,33 @@ def load_run(folder):
     prompts = read_json(folder / 'prompt.snapshot.json')
     if (instrument['content_sha256'] != manifest['instrument_sha256']
             or digest(book) != manifest['answer_snapshot_sha256']
-            or digest(prompts) != manifest['llm']['prompt_sha256']
-            or code_hash() != manifest['code_sha256']):
-        raise ValueError('run 快照或程式雜湊已變更；不能用不同內容續跑')
+            or digest(prompts) != manifest['llm']['prompt_sha256']):
+        raise ValueError('run 快照雜湊不一致；不能用不同內容續跑')
+    if code_hash() != manifest['code_sha256']:
+        if allow_code_update:
+            print(f"⚠️ 程式碼已更新（舊: {manifest['code_sha256'][:8]}，新: {code_hash()[:8]}）；已啟用 --allow-code-update 允許續跑。", flush=True)
+        else:
+            raise ValueError('run 快照或程式雜湊已變更；若確認程式升級相容，請加 --allow-code-update 續跑')
     if folder.name != manifest['run_id']:
         raise ValueError('run_id 與目錄不一致')
     validate_config(instrument, book, manifest['config'])
     return manifest, instrument, book, prompts
 
 
-def execute(folder, backend=None, *, retry_ambiguous=False):
+def execute(folder, backend=None, *, retry_ambiguous=False, allow_code_update=False):
     """Only coordinator/evaluator have book access. Backend receives allowlists."""
     folder = Path(folder)
     with run_lock(folder):
-        manifest, instrument, book, prompts = load_run(folder)
+        manifest, instrument, book, prompts = load_run(folder, allow_code_update=allow_code_update)
         if (folder / 'completed.json').exists():
             scores = read_json(folder / 'scores.json')
             if digest(scores) != read_json(folder / 'completed.json')['scores_sha256']:
                 raise ValueError('已完成 run 的分數雜湊不一致')
             return scores
         config = manifest['config']
+        if backend is None and config.get('backend') == 'agent':
+            from .agent_backend import AgentBackend
+            backend = AgentBackend(folder=folder)
         client = JournalClient(folder, config, prompts, backend,
                                retry_ambiguous=retry_ambiguous)
         history = {}
@@ -163,7 +173,7 @@ def initialize(folder, instrument, book, config, *, sdk_version):
         'instrument_id': instrument['instrument_id'], 'instrument_version': instrument['version'],
         'instrument_sha256': instrument['content_sha256'], 'answer_snapshot_sha256': digest(book),
         'config': config, 'code_revision': revision, 'code_sha256': code_hash(),
-        'llm': {'provider': 'google', 'model': config['model'],
+        'llm': {'provider': config.get('backend', 'google'), 'model': config['model'],
                 'sdk': 'google-genai', 'sdk_version': sdk_version,
                 'prompt_sha256': digest(prompts), 'generation_settings': config['generation_settings'],
                 'api_version': 'v1beta', 'timeout_ms': 120000, 'sdk_attempts': 1},
@@ -192,10 +202,13 @@ def main():
     parser.add_argument('--temperature', type=float, default=0.0)
     parser.add_argument('--max-output-tokens', type=int, default=8192)
     parser.add_argument('--max-api-attempts', type=int, default=3)
+    parser.add_argument('--backend', choices=('google', 'agent'), default='google')
     parser.add_argument('--run-id')
     parser.add_argument('--resume', type=Path)
     parser.add_argument('--retry-ambiguous', action='store_true',
                         help='Resume only: explicitly permit possibly duplicate paid requests')
+    parser.add_argument('--allow-code-update', action='store_true',
+                        help='Resume only: explicitly permit running when code hash has changed')
     args = parser.parse_args()
     try:
         if Path.cwd().resolve() != ROOT:
@@ -204,9 +217,9 @@ def main():
         if args.resume:
             import sys
             # Resume uses immutable config, not accidentally overridden CLI defaults.
-            if any(token.split('=')[0] not in ('--resume', '--retry-ambiguous')
+            if any(token.split('=')[0] not in ('--resume', '--retry-ambiguous', '--allow-code-update')
                    for token in sys.argv[1:] if token.startswith('--')):
-                raise ValueError('續跑只允許 --resume 與 --retry-ambiguous，不可換設定／答案')
+                raise ValueError('續跑只允許 --resume, --retry-ambiguous, --allow-code-update，不可換設定／答案')
             folder = args.resume.resolve()
             if folder.parent != (ROOT / 'runs').resolve() or not folder.is_dir():
                 raise ValueError('只能續跑本機 runs/<run_id>/')
@@ -215,9 +228,9 @@ def main():
                 child = batch['children']['fixed']
                 if child != folder.name + '-fixed':
                     raise ValueError('子 run 路徑不一致')
-                manifest, _, _, _ = load_run(folder.parent / child)
+                manifest, _, _, _ = load_run(folder.parent / child, allow_code_update=args.allow_code_update)
             else:
-                manifest, _, _, _ = load_run(folder)
+                manifest, _, _, _ = load_run(folder, allow_code_update=args.allow_code_update)
             if manifest['llm']['sdk_version'] != sdk_version:
                 raise ValueError('SDK 版本與 run 不一致，不能用不同版本續跑')
         else:
@@ -234,6 +247,7 @@ def main():
                 'include_reason': args.include_reason,
                 'fixed_order': args.fixed_order if args.fixed_order is not None else default_fixed_order(instrument),
                 'query_order': instrument['query_item_ids'], 'model': args.model,
+                'backend': args.backend,
                 'max_api_attempts': args.max_api_attempts,
                 'generation_settings': {'temperature': args.temperature,
                                         'max_output_tokens': args.max_output_tokens,
@@ -252,10 +266,12 @@ def main():
         print(f'本地 run：{folder}；API 呼叫可能產生費用。', flush=True)
         if (folder / 'batch.json').exists():
             from .batch import execute_batch
-            execute_batch(folder, retry_ambiguous=args.retry_ambiguous)
+            execute_batch(folder, retry_ambiguous=args.retry_ambiguous,
+                          allow_code_update=args.allow_code_update)
         else:
             from .plotting import plot_scores
-            scores = execute(folder, retry_ambiguous=args.retry_ambiguous)
+            scores = execute(folder, retry_ambiguous=args.retry_ambiguous,
+                             allow_code_update=args.allow_code_update)
             plot_scores(folder, {read_json(folder / 'manifest.json')['config']['strategy']: scores})
         print(f'完成；結果與 comparison.png／comparison.svg 保存於 {folder}')
     except (ValueError, KeyError, TypeError, OSError, RuntimeError, importlib.metadata.PackageNotFoundError) as error:
