@@ -130,6 +130,9 @@ class JournalClient:
             validate(value)
             return value
         attempts = self.config['max_api_attempts']
+        existing_attempts = len(list(call_dir.glob('attempt-*')))
+        if existing_attempts >= attempts and self.backend is not None and type(self.backend).__name__ == 'AgentBackend':
+            attempts = existing_attempts + 3
         attempt = 1
         while attempt <= attempts:
             attempt_dir = call_dir / f'attempt-{attempt:02d}'

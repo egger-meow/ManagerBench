@@ -217,9 +217,9 @@ def main():
         if args.resume:
             import sys
             # Resume uses immutable config, not accidentally overridden CLI defaults.
-            if any(token.split('=')[0] not in ('--resume', '--retry-ambiguous', '--allow-code-update')
+            if any(token.split('=')[0] not in ('--resume', '--retry-ambiguous', '--allow-code-update', '--backend')
                    for token in sys.argv[1:] if token.startswith('--')):
-                raise ValueError('續跑只允許 --resume, --retry-ambiguous, --allow-code-update，不可換設定／答案')
+                raise ValueError('續跑只允許 --resume, --retry-ambiguous, --allow-code-update, --backend，不可換設定／答案')
             folder = args.resume.resolve()
             if folder.parent != (ROOT / 'runs').resolve() or not folder.is_dir():
                 raise ValueError('只能續跑本機 runs/<run_id>/')
@@ -264,13 +264,19 @@ def main():
             else:
                 initialize(folder, instrument, book, config, sdk_version=sdk_version)
         print(f'本地 run：{folder}；API 呼叫可能產生費用。', flush=True)
+        backend_override = args.backend if any(t.startswith('--backend') for t in sys.argv[1:]) else None
         if (folder / 'batch.json').exists():
             from .batch import execute_batch
             execute_batch(folder, retry_ambiguous=args.retry_ambiguous,
-                          allow_code_update=args.allow_code_update)
+                          allow_code_update=args.allow_code_update,
+                          backend=backend_override)
         else:
             from .plotting import plot_scores
-            scores = execute(folder, retry_ambiguous=args.retry_ambiguous,
+            b = None
+            if backend_override == 'agent':
+                from .agent_backend import AgentBackend
+                b = AgentBackend(folder=folder)
+            scores = execute(folder, backend=b, retry_ambiguous=args.retry_ambiguous,
                              allow_code_update=args.allow_code_update)
             plot_scores(folder, {read_json(folder / 'manifest.json')['config']['strategy']: scores})
         print(f'完成；結果與 comparison.png／comparison.svg 保存於 {folder}')

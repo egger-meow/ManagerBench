@@ -31,7 +31,7 @@ def initialize_batch(folder, instrument, book, config, *, sdk_version):
     save(folder / 'batch.json', manifest)
 
 
-def execute_batch(folder, backend_factory=None, *, retry_ambiguous=False, allow_code_update=False):
+def execute_batch(folder, backend_factory=None, *, retry_ambiguous=False, allow_code_update=False, backend=None):
     from .run import execute, load_run
     from .plotting import plot_scores
     folder = Path(folder)
@@ -62,13 +62,13 @@ def execute_batch(folder, backend_factory=None, *, retry_ambiguous=False, allow_
             child = folder.parent / batch['children'][strategy]
             print(f'執行／續跑：{strategy}', flush=True)
             if backend_factory:
-                backend = backend_factory(strategy)
-            elif (child / 'manifest.json').exists() and read_json(child / 'manifest.json')['config'].get('backend') == 'agent':
+                b = backend_factory(strategy)
+            elif backend == 'agent' or ((child / 'manifest.json').exists() and read_json(child / 'manifest.json')['config'].get('backend') == 'agent'):
                 from .agent_backend import AgentBackend
-                backend = AgentBackend(folder=child)
+                b = AgentBackend(folder=child)
             else:
-                backend = None
-            reports[strategy] = execute(child, backend, retry_ambiguous=retry_ambiguous,
+                b = None
+            reports[strategy] = execute(child, b, retry_ambiguous=retry_ambiguous,
                                         allow_code_update=allow_code_update)
         summary = {'schema_version': 1, 'batch_id': folder.name, 'children': batch['children'],
                    'reports': reports, 'usage': {s: read_json(folder.parent / i / 'usage.json')
