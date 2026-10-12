@@ -8,3 +8,4 @@ runs/
 participants/
 .worktrees/
 .uv-cache/
+api_key.py
