@@ -4,6 +4,7 @@ import hashlib
 import importlib.metadata
 import re
 import subprocess
+import sys
 import uuid
 from pathlib import Path
 
@@ -215,7 +216,6 @@ def main():
             raise ValueError('請在 ManagerBench repo 根目錄啟動')
         sdk_version = importlib.metadata.version('google-genai')
         if args.resume:
-            import sys
             # Resume uses immutable config, not accidentally overridden CLI defaults.
             if any(token.split('=')[0] not in ('--resume', '--retry-ambiguous', '--allow-code-update', '--backend')
                    for token in sys.argv[1:] if token.startswith('--')):
