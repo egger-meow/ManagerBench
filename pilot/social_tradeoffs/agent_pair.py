@@ -1,0 +1,249 @@
+"""Run a paired agent-mimic experiment through fresh Codex CLI contexts.
+
+No Gemini client or API key is used. Codex uses the user's existing ChatGPT
+login. Allowed inference payloads are sent to Codex; saved artifacts stay local.
+"""
+import argparse
+import concurrent.futures
+import hashlib
+import importlib.metadata
+import json
+from pathlib import Path
+import re
+import shutil
+import subprocess
+import sys
+
+from .agent_backend import AgentBackend, format_agent_prompt
+from .batch import execute_batch, initialize_batch
+from .forms import digest, model_payload, read_json
+from .llm import JournalClient
+from .predictor import predict
+from .run import ROOT, load_run
+from .storage import now, run_lock, save
+from .strategies import default_fixed_order
+
+
+def codex_command(executable, model, workdir, output):
+    """Do not inherit memories, project instructions, plugins or file tools."""
+    return [str(executable), 'exec', '--ignore-user-config', '--ephemeral',
+            '--skip-git-repo-check', '--sandbox', 'read-only', '--json',
+            '--disable', 'memories', '--disable', 'plugins', '--disable', 'apps',
+            '--disable', 'multi_agent', '--disable', 'shell_tool',
+            '--disable', 'skill_search', '--disable', 'browser_use',
+            '-c', 'project_doc_max_bytes=0', '-c', 'memories.use_memories=false',
+            '-c', 'memories.generate_memories=false', '-c', 'web_search=disabled',
+            '--model', model, '-C', str(workdir), '--color', 'never',
+            '-o', str(output), '-']
+
+
+def validate_trace(stdout):
+    events = [json.loads(line) for line in stdout.splitlines() if line.strip()]
+    completed = False
+    for event in events:
+        if event.get('type') in ('error', 'turn.failed'):
+            raise RuntimeError('Codex agent failed; inspect private trace')
+        if event.get('type', '').startswith('item.'):
+            kind = event.get('item', {}).get('type')
+            if kind not in ('reasoning', 'agent_message'):
+                raise RuntimeError(f'Unexpected agent tool activity: {kind}')
+        completed |= event.get('type') == 'turn.completed'
+    if not completed:
+        raise RuntimeError('No completed agent turn; inspect private trace')
+
+
+class CodexAgentBackend(AgentBackend):
+    def __init__(self, folder, executable, actual_model):
+        super().__init__(folder=folder, interactive=False)
+        self.executable = executable
+        self.actual_model = actual_model
+
+    def generate(self, request):
+        # A separate process/session for EVERY selector or predictor request.
+        prompt = format_agent_prompt(request)
+        task_id = digest(request)
+        task = self.folder / 'agent_tasks' / task_id
+        task.mkdir(parents=True, exist_ok=True)
+        workspace = task / 'empty_workspace'
+        workspace.mkdir(exist_ok=True)
+        output = task / 'final.json'
+        if output.exists():
+            raise RuntimeError('Existing unjournaled agent output; inspect before retry')
+        (task / 'inbox.md').write_text(prompt, encoding='utf-8')
+        self.inbox_path.write_text(prompt, encoding='utf-8')
+        command = codex_command(self.executable, self.actual_model, workspace, output)
+        save(task / 'handoff.json', {
+            'origin': 'agent-mimic', 'runtime': 'codex-cli',
+            'configured_agent_model': self.actual_model,
+            'resolved_model_version': 'unknown', 'mimic_target': request['model'],
+            'fresh_process_per_request': True, 'memory_enabled': False,
+            'project_instructions_enabled': False, 'tool_use_allowed': False,
+            'request_sha256': task_id, 'started_at_utc': now(),
+            'command': command,
+            'note': 'Gemini generation settings are mimic metadata, not Codex sampling controls.',
+        })
+        print(f'agent-mimic {self.folder.name} {request["role"]} {task_id[:12]}', flush=True)
+        try:
+            result = subprocess.run(command, input=prompt, text=True, encoding='utf-8',
+                                    capture_output=True, timeout=1800)
+        except subprocess.TimeoutExpired as error:
+            for name, content in (('trace.jsonl', error.stdout), ('stderr.txt', error.stderr)):
+                if isinstance(content, bytes):
+                    content = content.decode('utf-8', errors='replace')
+                (task / name).write_text(content or '', encoding='utf-8')
+            raise RuntimeError(f'Codex timed out; partial trace retained in {task}') from None
+        (task / 'trace.jsonl').write_text(result.stdout, encoding='utf-8')
+        (task / 'stderr.txt').write_text(result.stderr, encoding='utf-8')
+        if result.returncode:
+            raise RuntimeError(f'Codex exited {result.returncode}; inspect {task}')
+        validate_trace(result.stdout)
+        text = output.read_text(encoding='utf-8').strip()
+        json.loads(text)
+        self.outbox_path.write_text(text, encoding='utf-8')
+        return {'text': text,
+                'raw': {'origin': 'agent-mimic', 'runtime': 'codex-cli',
+                        'actual_agent_model': self.actual_model,
+                        'resolved_model_version': 'unknown',
+                        'model_mimic': request['model'], 'text': text,
+                        'trace': str(task / 'trace.jsonl')},
+                'usage': {'prompt_token_count': None, 'candidates_token_count': None},
+                'model_version': f'agent-mimic:codex:{self.actual_model}'}
+
+
+def pair_report(folder, pair):
+    from matplotlib.figure import Figure
+    from matplotlib.backends.backend_agg import FigureCanvasAgg
+    fields = ('accept_a', 'accept_b', 'choice')
+    fig = Figure(figsize=(12, 10), layout='constrained')
+    FigureCanvasAgg(fig)
+    axes = fig.subplots(3, 2, sharex=True, sharey=True)
+    lines = ['# Paired agent-mimic rerun', '',
+             f'Agent model: {pair["actual_agent_model"]}; resolved version: unknown.',
+             'Reason means the participant reason, not model chain of thought.',
+             '', '|Reason access|Strategy|k|A accuracy_all_answered|B accuracy_all_answered|Choice accuracy_all_answered|A/B/choice coverage|',
+             '|---|---|---:|---:|---:|---:|---|']
+    reports = {}
+    for col, (condition, batch_id) in enumerate(pair['batches'].items()):
+        comparison = read_json(folder.parent / batch_id / 'comparison.json')
+        reports[condition] = comparison['reports']
+        for strategy, report in comparison['reports'].items():
+            for row, field in enumerate(fields):
+                axes[row, col].plot([s['stage'] for s in report['stages']],
+                                   [s['fields'][field]['accuracy_all_answered'] for s in report['stages']],
+                                   marker='o', label=strategy)
+                axes[row, col].set_title(f'include_reason={condition} / {field}')
+                axes[row, col].set_ylim(-.05, 1.05)
+                axes[row, col].grid(alpha=.2)
+                axes[row, col].legend()
+            for stage in report['stages']:
+                metrics = [stage['fields'][f] for f in fields]
+                values = [str(m['accuracy_all_answered']) for m in metrics]
+                coverage = '/'.join(str(m['coverage']) for m in metrics)
+                lines.append(f'|{condition}|{strategy}|{stage["stage"]}|'
+                             + '|'.join(values) + f'|{coverage}|')
+    for ax in axes[-1]:
+        ax.set_xlabel('Revealed queries (k)')
+    fig.suptitle('Participant reason access — paired Codex agent-mimic runs')
+    for extension in ('png', 'svg'):
+        fig.savefig(folder / f'reasoning-comparison.{extension}', dpi=160)
+    save(folder / 'paired-scores.json', reports)
+    (folder / 'report.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--pair-id')
+    parser.add_argument('--resume', type=Path)
+    parser.add_argument('--agent-model')
+    parser.add_argument('--allow-codex-inference', action='store_true',
+                        help='Explicitly allow sending model-facing experiment payloads to Codex inference')
+    parser.add_argument('--preflight', action='store_true', help='Complete only fixed/no-reason k=0, then exit')
+    parser.add_argument('--retry-ambiguous', action='store_true')
+    args = parser.parse_args()
+    if not args.allow_codex_inference:
+        parser.error('Codex inference sends allowed payloads, including revealed query answers, '
+                     'to an external service; explicit --allow-codex-inference is required')
+    executable = shutil.which('codex.cmd') or shutil.which('codex')
+    if not executable:
+        parser.error('Codex CLI is not installed')
+    helper_hash = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    if args.resume:
+        folder = args.resume.resolve()
+        if folder.parent != ROOT / 'runs':
+            parser.error('Resume path must be runs/<pair_id>')
+        pair = read_json(folder / 'pair.json')
+        if pair.get('pair_sha256') != digest({k: v for k, v in pair.items() if k != 'pair_sha256'}):
+            parser.error('Pair metadata hash mismatch')
+        if pair['coordinator_sha256'] != helper_hash:
+            parser.error('Coordinator code changed; do not silently resume')
+        if args.pair_id or args.agent_model:
+            parser.error('Resume uses frozen pair settings')
+    else:
+        if not args.pair_id or not args.agent_model:
+            parser.error('New pairs need --pair-id and --agent-model')
+        if not re.fullmatch(r'[A-Za-z0-9._-]+', args.agent_model):
+            parser.error('Invalid agent model ID')
+        if not args.pair_id.replace('-', '').replace('_', '').isalnum():
+            parser.error('Invalid pair ID')
+        folder = ROOT / 'runs' / args.pair_id
+        if folder.exists():
+            parser.error('Pair exists; use --resume')
+        instrument = read_json(ROOT / 'pilot/social_tradeoffs/instruments/f1_context_v002.json')
+        book = read_json(ROOT / 'participants/p001/f1_context_v002.json')
+        config = {'strategy': 'all', 'seed': 42, 'query_limit': 4,
+                  'fixed_order': default_fixed_order(instrument),
+                  'query_order': instrument['query_item_ids'], 'model': 'gemini-3.8-flash',
+                  'backend': 'agent', 'max_api_attempts': 3,
+                  'generation_settings': {'temperature': 0.0, 'max_output_tokens': 8192,
+                                          'candidate_count': 1, 'top_p': 1.0, 'top_k': 40, 'seed': 42}}
+        batches = {condition: folder.name + suffix for condition, suffix in
+                   (('false', '-noreason'), ('true', '-reason'))}
+        paths = [folder] + [folder.parent / batch_id for batch_id in batches.values()]
+        paths += [folder.parent / (batch_id + '-' + strategy)
+                  for batch_id in batches.values() for strategy in ('fixed', 'random', 'adaptive')]
+        if any(path.exists() for path in paths):
+            parser.error('Pair or batch paths already exist; refusing partial initialization')
+        # One in-memory answer snapshot initializes BOTH conditions before inference.
+        sdk = importlib.metadata.version('google-genai')
+        for condition, batch_id in batches.items():
+            initialize_batch(folder.parent / batch_id, instrument, book,
+                             {**config, 'include_reason': condition == 'true'}, sdk_version=sdk)
+        pair = {'origin': 'agent-mimic', 'actual_agent_model': args.agent_model,
+                'resolved_model_version': 'unknown', 'batches': batches,
+                'answer_snapshot_sha256': digest(book),
+                'instrument_sha256': instrument['content_sha256'],
+                'coordinator_sha256': helper_hash, 'created_at_utc': now(),
+                'codex_version': subprocess.run([executable, '--version'], capture_output=True,
+                                                 text=True).stdout.strip()}
+        pair['pair_sha256'] = digest(pair)
+        save(folder / 'pair.json', pair)
+    model = pair['actual_agent_model']
+    if args.preflight:
+        child = folder.parent / (pair['batches']['false'] + '-fixed')
+        with run_lock(child):
+            manifest, instrument, _, prompts = load_run(child)
+            client = JournalClient(child, manifest['config'], prompts,
+                                   CodexAgentBackend(child, executable, model),
+                                   retry_ambiguous=args.retry_ambiguous)
+            try:
+                predict(model_payload(instrument, {}, instrument['test_item_ids'], include_reason=False), 0, client)
+            finally:
+                client.close()
+        print(f'PREFLIGHT PASSED: {folder}', flush=True)
+        return
+    def run_condition(batch_id):
+        batch = folder.parent / batch_id
+        return execute_batch(batch,
+                             backend_factory=lambda strategy: CodexAgentBackend(
+                                 folder.parent / (batch_id + '-' + strategy), executable, model),
+                             retry_ambiguous=args.retry_ambiguous)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+        list(pool.map(run_condition, pair['batches'].values()))
+    pair_report(folder, pair)
+    save(folder / 'completed.json', {'completed_at_utc': now(),
+                                     'paired_scores_sha256': digest(read_json(folder / 'paired-scores.json'))})
+    print(f'COMPLETED: {folder}', flush=True)
+
+
+if __name__ == '__main__':
+    main()
