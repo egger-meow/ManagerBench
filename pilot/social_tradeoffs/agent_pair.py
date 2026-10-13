@@ -12,7 +12,7 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
-import sys
+import uuid
 
 from .agent_backend import AgentBackend, format_agent_prompt
 from .batch import execute_batch, initialize_batch
@@ -53,6 +53,8 @@ def validate_trace(stdout):
 
 
 class CodexAgentBackend(AgentBackend):
+    allow_interactive_recovery = False
+
     def __init__(self, folder, executable, actual_model):
         super().__init__(folder=folder, interactive=False)
         self.executable = executable
@@ -64,6 +66,13 @@ class CodexAgentBackend(AgentBackend):
         task_id = digest(request)
         task = self.folder / 'agent_tasks' / task_id
         task.mkdir(parents=True, exist_ok=True)
+        if any(task.rglob('final.json')):
+            raise RuntimeError('Existing unjournaled agent output; inspect before retry')
+        if (task / 'handoff.json').exists():
+            # Transport failures without a final answer may be retried; retain
+            # the original receipt and failed trace instead of overwriting them.
+            task = task / 'retries' / uuid.uuid4().hex
+            task.mkdir(parents=True, exist_ok=False)
         workspace = task / 'empty_workspace'
         workspace.mkdir(exist_ok=True)
         output = task / 'final.json'
@@ -80,7 +89,7 @@ class CodexAgentBackend(AgentBackend):
             'project_instructions_enabled': False, 'tool_use_allowed': False,
             'request_sha256': task_id, 'started_at_utc': now(),
             'command': command,
-            'note': 'Gemini generation settings are mimic metadata, not Codex sampling controls.',
+            'note': 'Runner generation settings are mimic metadata, not Codex sampling controls.',
         })
         print(f'agent-mimic {self.folder.name} {request["role"]} {task_id[:12]}', flush=True)
         try:
@@ -111,42 +120,95 @@ class CodexAgentBackend(AgentBackend):
 
 
 def pair_report(folder, pair):
+    from matplotlib import font_manager, rc_context
     from matplotlib.figure import Figure
     from matplotlib.backends.backend_agg import FigureCanvasAgg
+    from .evaluate import score
     fields = ('accept_a', 'accept_b', 'choice')
-    fig = Figure(figsize=(12, 10), layout='constrained')
+    titles = ('A 可接受性', 'B 可接受性', '最終選擇')
+    font = Path('C:/Windows/Fonts/msjh.ttc')
+    font_family = 'DejaVu Sans'
+    if font.exists():
+        font_manager.fontManager.addfont(str(font))
+        font_family = font_manager.FontProperties(fname=str(font)).get_name()
+    fig = Figure(figsize=(15, 6.8))
     FigureCanvasAgg(fig)
-    axes = fig.subplots(3, 2, sharex=True, sharey=True)
+    axes = fig.subplots(2, 3, sharex=True)
+    styles = {'fixed': ('#2563eb', '-', 'o'), 'random': ('#f97316', '--', 's'),
+              'adaptive': ('#0d9488', ':', '^')}
     lines = ['# Paired agent-mimic rerun', '',
              f'Agent model: {pair["actual_agent_model"]}; resolved version: unknown.',
              'Reason means the participant reason, not model chain of thought.',
-             '', '|Reason access|Strategy|k|A accuracy_all_answered|B accuracy_all_answered|Choice accuracy_all_answered|A/B/choice coverage|',
+             f'Answer snapshot SHA256: {pair["answer_snapshot_sha256"]}',
+             '', '|Reason access|Strategy|k|A correct/all|B correct/all|Choice correct/all|A/B/choice coverage|',
              '|---|---|---:|---:|---:|---:|---|']
     reports = {}
-    for col, (condition, batch_id) in enumerate(pair['batches'].items()):
+    first_child = folder.parent / (pair['batches']['false'] + '-fixed')
+    instrument = read_json(first_child / 'instrument.snapshot.json')
+    book = read_json(first_child / 'answers.snapshot.json')
+    baseline_predictions = {}
+    for item in instrument['items']:
+        if item['item_id'] in instrument['test_item_ids']:
+            response = item['response']
+            acceptable = response['accept_a_and_b_labels_zh_tw']['acceptable']
+            baseline_predictions[item['item_id']] = {
+                'accept_a': acceptable, 'accept_b': acceptable,
+                'choice': response['choice_labels_zh_tw']['A']}
+    baseline = score(instrument, book, [(0, baseline_predictions)])
+    save(folder / 'baseline.json', {'origin': 'programmatic_baseline',
+                                  'policy': 'both acceptable, always choose A', 'scores': baseline})
+    for row, (condition, batch_id) in enumerate(pair['batches'].items()):
         comparison = read_json(folder.parent / batch_id / 'comparison.json')
         reports[condition] = comparison['reports']
         for strategy, report in comparison['reports'].items():
-            for row, field in enumerate(fields):
+            for col, field in enumerate(fields):
+                color, style, marker = styles[strategy]
                 axes[row, col].plot([s['stage'] for s in report['stages']],
-                                   [s['fields'][field]['accuracy_all_answered'] for s in report['stages']],
-                                   marker='o', label=strategy)
-                axes[row, col].set_title(f'include_reason={condition} / {field}')
-                axes[row, col].set_ylim(-.05, 1.05)
-                axes[row, col].grid(alpha=.2)
-                axes[row, col].legend()
+                                   [s['fields'][field]['correct'] for s in report['stages']],
+                                   marker=marker, linestyle=style, color=color,
+                                   linewidth=2, markersize=6, label=strategy)
             for stage in report['stages']:
                 metrics = [stage['fields'][f] for f in fields]
-                values = [str(m['accuracy_all_answered']) for m in metrics]
+                values = [f'{m["correct"]}/{m["labels_available"]}' for m in metrics]
                 coverage = '/'.join(str(m['coverage']) for m in metrics)
                 lines.append(f'|{condition}|{strategy}|{stage["stage"]}|'
                              + '|'.join(values) + f'|{coverage}|')
+        for col, field in enumerate(fields):
+            ax = axes[row, col]
+            total = baseline['stages'][0]['fields'][field]['labels_available']
+            ax.axhline(baseline['stages'][0]['fields'][field]['correct'],
+                       color='#a3a3a3', linestyle='--', linewidth=1.3, zorder=0)
+            ax.set_ylim(-.2, max(total, 1) + .25)
+            ax.set_yticks(range(total + 1), [f'{n}/{total}' for n in range(total + 1)])
+            ax.set_xticks(range(5))
+            ax.grid(alpha=.14)
+            ax.set_axisbelow(True)
+            ax.set_title(titles[col], fontfamily=font_family, fontsize=13)
+            ax.tick_params(labelsize=11)
+            if col:
+                ax.tick_params(labelleft=False)
+        label = '沒讀 reasoning' if condition == 'false' else '有讀 reasoning'
+        axes[row, 0].set_ylabel(f'{label}\nagent-mimic\n答對題數',
+                                fontfamily=font_family, fontsize=11)
+        axes[row, 2].legend(loc='lower right', fontsize=11)
     for ax in axes[-1]:
-        ax.set_xlabel('Revealed queries (k)')
-    fig.suptitle('Participant reason access — paired Codex agent-mimic runs')
-    for extension in ('png', 'svg'):
-        fig.savefig(folder / f'reasoning-comparison.{extension}', dpi=160)
+        ax.set_xlabel('已揭露的詢問題數 k', fontfamily=font_family, fontsize=11)
+    fig.suptitle(f'{pair["actual_agent_model"]} · agent-mimic', fontsize=15, y=.99)
+    fig.text(.5, .012, '灰虛線：程式基線「A、B 皆可接受，永遠選 A」；coverage 與完整分數另存報告。',
+             ha='center', fontfamily=font_family, fontsize=10, color='#666666')
+    fig.subplots_adjust(left=.09, right=.985, top=.90, bottom=.12, hspace=.28, wspace=.055)
+    with rc_context({'font.family': font_family, 'svg.fonttype': 'none'}):
+        for extension in ('png', 'svg'):
+            figure_path = folder / f'reasoning-comparison.{extension}'
+            fig.savefig(figure_path, dpi=180)
+            if extension == 'svg':
+                figure_path.write_text('\n'.join(line.rstrip() for line in
+                                       figure_path.read_text(encoding='utf-8').splitlines()) + '\n',
+                                       encoding='utf-8')
     save(folder / 'paired-scores.json', reports)
+    lines += ['', 'Gray dashed lines: programmatic baseline, both acceptable / always choose A.',
+              'The chart shows correct / labels_available; coverage is reported separately.',
+              'Four held-out items from one participant do not establish generalization or a causal reasoning benefit.']
     (folder / 'report.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
 
@@ -155,6 +217,8 @@ def main():
     parser.add_argument('--pair-id')
     parser.add_argument('--resume', type=Path)
     parser.add_argument('--agent-model')
+    parser.add_argument('--codex-executable', type=Path,
+                        help='Use a verified CLI binary, e.g. the desktop-bundled executable')
     parser.add_argument('--allow-codex-inference', action='store_true',
                         help='Explicitly allow sending model-facing experiment payloads to Codex inference')
     parser.add_argument('--preflight', action='store_true', help='Complete only fixed/no-reason k=0, then exit')
@@ -163,9 +227,6 @@ def main():
     if not args.allow_codex_inference:
         parser.error('Codex inference sends allowed payloads, including revealed query answers, '
                      'to an external service; explicit --allow-codex-inference is required')
-    executable = shutil.which('codex.cmd') or shutil.which('codex')
-    if not executable:
-        parser.error('Codex CLI is not installed')
     helper_hash = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     if args.resume:
         folder = args.resume.resolve()
@@ -176,13 +237,18 @@ def main():
             parser.error('Pair metadata hash mismatch')
         if pair['coordinator_sha256'] != helper_hash:
             parser.error('Coordinator code changed; do not silently resume')
-        if args.pair_id or args.agent_model:
+        if args.pair_id or args.agent_model or args.codex_executable:
             parser.error('Resume uses frozen pair settings')
+        executable = pair['codex_executable']
     else:
         if not args.pair_id or not args.agent_model:
             parser.error('New pairs need --pair-id and --agent-model')
         if not re.fullmatch(r'[A-Za-z0-9._-]+', args.agent_model):
             parser.error('Invalid agent model ID')
+        executable = (str(args.codex_executable.resolve()) if args.codex_executable
+                      else shutil.which('codex.cmd') or shutil.which('codex'))
+        if not executable or not Path(executable).is_file():
+            parser.error('Codex CLI executable not found')
         if not args.pair_id.replace('-', '').replace('_', '').isalnum():
             parser.error('Invalid pair ID')
         folder = ROOT / 'runs' / args.pair_id
@@ -192,7 +258,7 @@ def main():
         book = read_json(ROOT / 'participants/p001/f1_context_v002.json')
         config = {'strategy': 'all', 'seed': 42, 'query_limit': 4,
                   'fixed_order': default_fixed_order(instrument),
-                  'query_order': instrument['query_item_ids'], 'model': 'gemini-3.8-flash',
+                  'query_order': instrument['query_item_ids'], 'model': args.agent_model,
                   'backend': 'agent', 'max_api_attempts': 3,
                   'generation_settings': {'temperature': 0.0, 'max_output_tokens': 8192,
                                           'candidate_count': 1, 'top_p': 1.0, 'top_k': 40, 'seed': 42}}
@@ -209,6 +275,7 @@ def main():
             initialize_batch(folder.parent / batch_id, instrument, book,
                              {**config, 'include_reason': condition == 'true'}, sdk_version=sdk)
         pair = {'origin': 'agent-mimic', 'actual_agent_model': args.agent_model,
+                'codex_executable': executable,
                 'resolved_model_version': 'unknown', 'batches': batches,
                 'answer_snapshot_sha256': digest(book),
                 'instrument_sha256': instrument['content_sha256'],

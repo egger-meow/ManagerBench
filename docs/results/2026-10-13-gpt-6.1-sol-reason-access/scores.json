@@ -1,0 +1,1098 @@
+{
+  "false": {
+    "fixed": {
+      "scoring_version": "social-exact-v2",
+      "primary_metric": "accuracy_all_answered",
+      "stages": [
+        {
+          "stage": 0,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 2,
+              "accuracy": 0.5,
+              "accuracy_all_answered": 0.5
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 1,
+              "accuracy": 0.25,
+              "accuracy_all_answered": 0.25
+            }
+          }
+        },
+        {
+          "stage": 1,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 2,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 3,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 4,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        }
+      ],
+      "note": "主指標為答對／真人已回答題；accuracy 保留答對／模型有預測且真人有答案題。reason 不評分；資訊不足、拒絕與不確定是有效類別；null 才是缺答／棄答"
+    },
+    "random": {
+      "scoring_version": "social-exact-v2",
+      "primary_metric": "accuracy_all_answered",
+      "stages": [
+        {
+          "stage": 0,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 1,
+              "accuracy": 0.25,
+              "accuracy_all_answered": 0.25
+            }
+          }
+        },
+        {
+          "stage": 1,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 2,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 3,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 4,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        }
+      ],
+      "note": "主指標為答對／真人已回答題；accuracy 保留答對／模型有預測且真人有答案題。reason 不評分；資訊不足、拒絕與不確定是有效類別；null 才是缺答／棄答"
+    },
+    "adaptive": {
+      "scoring_version": "social-exact-v2",
+      "primary_metric": "accuracy_all_answered",
+      "stages": [
+        {
+          "stage": 0,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 1,
+              "accuracy": 0.25,
+              "accuracy_all_answered": 0.25
+            }
+          }
+        },
+        {
+          "stage": 1,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 2,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 3,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 4,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        }
+      ],
+      "note": "主指標為答對／真人已回答題；accuracy 保留答對／模型有預測且真人有答案題。reason 不評分；資訊不足、拒絕與不確定是有效類別；null 才是缺答／棄答"
+    }
+  },
+  "true": {
+    "fixed": {
+      "scoring_version": "social-exact-v2",
+      "primary_metric": "accuracy_all_answered",
+      "stages": [
+        {
+          "stage": 0,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 2,
+              "accuracy": 0.5,
+              "accuracy_all_answered": 0.5
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 1,
+              "accuracy": 0.25,
+              "accuracy_all_answered": 0.25
+            }
+          }
+        },
+        {
+          "stage": 1,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 2,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 3,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 4,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        }
+      ],
+      "note": "主指標為答對／真人已回答題；accuracy 保留答對／模型有預測且真人有答案題。reason 不評分；資訊不足、拒絕與不確定是有效類別；null 才是缺答／棄答"
+    },
+    "random": {
+      "scoring_version": "social-exact-v2",
+      "primary_metric": "accuracy_all_answered",
+      "stages": [
+        {
+          "stage": 0,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 2,
+              "accuracy": 0.5,
+              "accuracy_all_answered": 0.5
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 1,
+              "accuracy": 0.25,
+              "accuracy_all_answered": 0.25
+            }
+          }
+        },
+        {
+          "stage": 1,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 2,
+              "accuracy": 0.5,
+              "accuracy_all_answered": 0.5
+            }
+          }
+        },
+        {
+          "stage": 2,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 2,
+              "accuracy": 0.5,
+              "accuracy_all_answered": 0.5
+            }
+          }
+        },
+        {
+          "stage": 3,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 4,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        }
+      ],
+      "note": "主指標為答對／真人已回答題；accuracy 保留答對／模型有預測且真人有答案題。reason 不評分；資訊不足、拒絕與不確定是有效類別；null 才是缺答／棄答"
+    },
+    "adaptive": {
+      "scoring_version": "social-exact-v2",
+      "primary_metric": "accuracy_all_answered",
+      "stages": [
+        {
+          "stage": 0,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 2,
+              "accuracy": 0.5,
+              "accuracy_all_answered": 0.5
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 1,
+              "accuracy": 0.25,
+              "accuracy_all_answered": 0.25
+            }
+          }
+        },
+        {
+          "stage": 1,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 2,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 3,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        },
+        {
+          "stage": 4,
+          "fields": {
+            "accept_a": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "accept_b": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 4,
+              "accuracy": 1.0,
+              "accuracy_all_answered": 1.0
+            },
+            "choice": {
+              "labels_available": 4,
+              "missing_labels": 0,
+              "predictions_on_available_labels": 4,
+              "abstentions_all_test_items": 0,
+              "coverage": 1.0,
+              "correct": 3,
+              "accuracy": 0.75,
+              "accuracy_all_answered": 0.75
+            }
+          }
+        }
+      ],
+      "note": "主指標為答對／真人已回答題；accuracy 保留答對／模型有預測且真人有答案題。reason 不評分；資訊不足、拒絕與不確定是有效類別；null 才是缺答／棄答"
+    }
+  }
+}

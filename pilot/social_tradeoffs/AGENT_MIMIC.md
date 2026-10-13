@@ -21,8 +21,9 @@ sent. Validate isolation with a data-free probe in the target runtime first;
 
 Both conditions are initialized from one in-memory answer snapshot before any
 inference. They share the agent model, instrument, prompt, code, seed and query
-budget. Only participant reason access differs. The original Gemini target and
-sampling settings remain mimic metadata; they are not Codex sampling controls.
+budget. Only participant reason access differs. The prompt's target model uses
+the requested agent model. Runner sampling settings remain mimic metadata;
+they are not Codex sampling controls.
 The configured actual Codex model is recorded separately; a resolved provider
 model version is unknown. Raw outputs, task hashes, command and traces are private
 files under ignored `runs/` directories. Never commit those files.
@@ -35,6 +36,11 @@ python -m pilot.social_tradeoffs.agent_pair --pair-id corrected-agent-NEW --agen
 python -m pilot.social_tradeoffs.agent_pair --resume runs/corrected-agent-NEW --allow-codex-inference
 ```
 
+If the PATH CLI is too old for the requested model, pass
+`--codex-executable C:/path/to/verified/codex.exe` on creation. The executable,
+version and model are frozen in pair metadata. Automated failures exit with an
+error; they cannot open the interactive recovery menu or switch to Google.
+
 Preflight completes and journals only fixed/no-reason k=0. Resume reuses that
 validated response and completes all 38 requests across two conditions. Each
 condition runs fixed/random/adaptive; every selector/predictor still starts a
@@ -43,7 +49,12 @@ Allow up to 30 minutes per CLI process, rather than the passive five-minute
 handoff timeout. Failed or ambiguous requests remain recorded; inspect their
 private `agent_tasks` trace before explicitly using `--retry-ambiguous`.
 Existing unjournaled outputs are never silently regenerated or overwritten.
+Transport retries with no final answer receive separate receipt/trace directories,
+so a capacity error cannot cause the next retry to overwrite the failed receipt.
 
 Completion requires both batch `completed.json` files and the pair completion
 marker. The pair directory contains `paired-scores.json`, `report.md` and
 `reasoning-comparison.png`/`.svg`. Coverage remains separate from accuracy.
+The figure uses two condition rows and three outcome columns, integer correct/all
+ticks, and fixed/random/adaptive lines. Gray dashed lines are the explicitly
+labeled programmatic baseline: both acceptable, always choose A.

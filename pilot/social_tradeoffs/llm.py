@@ -171,8 +171,9 @@ class JournalClient:
                     # Never persist exception text: URLs/headers may contain secrets.
                     save(error_path, {'at_utc': now(), 'kind': kind, 'http_code': code,
                                       'exception_type': type(error).__name__})
-                    action = handle_interactive_error(call_id, code=code, error_kind=kind,
-                                                      attempt=attempt, max_attempts=attempts)
+                    action = (handle_interactive_error(call_id, code=code, error_kind=kind,
+                                                       attempt=attempt, max_attempts=attempts)
+                              if getattr(self.backend, 'allow_interactive_recovery', True) else None)
                     if action is not None:
                         act, val = action
                         if act == 'retry_wait':
@@ -222,8 +223,9 @@ class JournalClient:
             save(valid_path, value)
             return value
 
-        action = handle_interactive_error(call_id, error_kind='max_attempts',
+        action = (handle_interactive_error(call_id, error_kind='max_attempts',
                                           attempt=attempts, max_attempts=attempts)
+                  if getattr(self.backend, 'allow_interactive_recovery', True) else None)
         if action is not None:
             act, val = action
             if act == 'switch_agent':

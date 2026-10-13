@@ -1,0 +1,62 @@
+{
+  "origin": "agent-mimic",
+  "actual_agent_model": "gpt-6.1-sol",
+  "resolved_model_version": "unknown",
+  "runtime": "codex-cli",
+  "codex_version": "codex-cli 0.162.0-alpha.17.2",
+  "requests": 38,
+  "distinct_agent_sessions": 38,
+  "failed_transport_attempts": 1,
+  "transport_recovery": "One capacity failure was retried with the same model and a fresh context; successful journals were reused.",
+  "score_recomputation_match": true,
+  "payload_allowlist_audit_passed": true,
+  "unexpected_tool_activity": 0,
+  "all_six_runs_completed": true,
+  "instrument_sha256": "8eee9587b19b5e80b068797684b3c24f3a448fa1dcff618e9c77f9765cb7cfbb",
+  "answer_snapshot_sha256": "cb1f6a8badbc5dd30bda817a3dc7840d53cce34703b9a425120e2fbc1eb8ac88",
+  "prompt_sha256": "524c40805903ede628a54607c5a9a4a78cbde890535a25db66caddea46bdafc4",
+  "runtime_code_sha256": "cdb617fc47830d9edf37c12945d407f4cff9243e975d8326f6cfdfe03e0fb9d3",
+  "coordinator_sha256": "761acec711cbf38e9aadcb30500815fb6d0a727ad1359fc109b4837b37bb3faf",
+  "paired_scores_sha256": "7195900fc4358cfb37561d57574b51b58c2cef97f49bc3b3bfe097fd77151147",
+  "settings": {
+    "seed": 42,
+    "query_limit": 4,
+    "fixed_order": [
+      "F1-context-info-content",
+      "F1-context-display-click",
+      "F1-context-burden-spread",
+      "F1-context-burden-repeat",
+      "F1-context-info-risk",
+      "F1-context-display-inline",
+      "F1-context-info-risk-g15",
+      "F1-context-feed-content-g15"
+    ],
+    "query_order": [
+      "F1-context-info-content",
+      "F1-context-info-risk",
+      "F1-context-burden-spread",
+      "F1-context-burden-repeat",
+      "F1-context-display-inline",
+      "F1-context-display-click",
+      "F1-context-info-risk-g15",
+      "F1-context-feed-content-g15"
+    ],
+    "model": "gpt-6.1-sol",
+    "backend": "agent",
+    "max_api_attempts": 3,
+    "generation_settings": {
+      "temperature": 0.0,
+      "max_output_tokens": 8192,
+      "candidate_count": 1,
+      "top_p": 1.0,
+      "top_k": 40,
+      "seed": 42
+    }
+  },
+  "conditions": {
+    "false": "No participant reasons",
+    "true": "Revealed query participant reasons included"
+  },
+  "privacy": "Aggregate scores and figure only. No answer books, raw requests, raw replies, or credentials.",
+  "sampling_note": "Runner generation settings are mimic metadata; Codex sampling controls were not set."
+}
